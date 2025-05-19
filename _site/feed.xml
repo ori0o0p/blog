@@ -1,0 +1,794 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/blog/" rel="alternate" type="text/html" /><updated>2025-05-19T11:44:38+09:00</updated><id>http://localhost:4000/blog/feed.xml</id><title type="html">Seungwon</title><subtitle>개발 블로그</subtitle><entry><title type="html">정렬 알고리즘 비교</title><link href="http://localhost:4000/blog/algorithms/sorting-algorithms/" rel="alternate" type="text/html" title="정렬 알고리즘 비교" /><published>2023-12-10T00:00:00+09:00</published><updated>2023-12-10T00:00:00+09:00</updated><id>http://localhost:4000/blog/algorithms/sorting-algorithms</id><content type="html" xml:base="http://localhost:4000/blog/algorithms/sorting-algorithms/"><![CDATA[<p>정렬 알고리즘은 컴퓨터 과학에서 가장 기본적이고 중요한 알고리즘 중 하나입니다. 이 글에서는 주요 정렬 알고리즘의 작동 방식, 시간 복잡도, 그리고 각각의 장단점을 비교해 보겠습니다.</p>
+
+<h2 id="버블-정렬-bubble-sort">버블 정렬 (Bubble Sort)</h2>
+
+<p>버블 정렬은 가장 단순한 정렬 알고리즘 중 하나로, 인접한 두 원소를 비교하여 필요한 경우 위치를 교환하는 방식으로 동작합니다.</p>
+
+<p>```javascript
+function bubbleSort(arr) {
+  const n = arr.length;</p>
+
+<p>for (let i = 0; i &lt; n; i++) {
+    for (let j = 0; j &lt; n - i - 1; j++) {
+      if (arr[j] &gt; arr[j + 1]) {
+        // 두 원소 교환
+        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+      }
+    }
+  }</p>
+
+<p>return arr;
+}
+```</p>
+
+<ul>
+  <li><strong>시간 복잡도</strong>: O(n²)</li>
+  <li><strong>공간 복잡도</strong>: O(1)</li>
+  <li><strong>장점</strong>: 구현이 매우 간단함</li>
+  <li><strong>단점</strong>: 대규모 데이터셋에서는 매우 비효율적임</li>
+</ul>
+
+<h2 id="선택-정렬-selection-sort">선택 정렬 (Selection Sort)</h2>
+
+<p>선택 정렬은 배열에서 최소값을 찾아 맨 앞으로 이동시키는 과정을 반복하는 알고리즘입니다.</p>
+
+<p>```javascript
+function selectionSort(arr) {
+  const n = arr.length;</p>
+
+<p>for (let i = 0; i &lt; n; i++) {
+    let minIndex = i;</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for (let j = i + 1; j &lt; n; j++) {
+  if (arr[j] &lt; arr[minIndex]) {
+    minIndex = j;
+  }
+}
+
+if (minIndex !== i) {
+  // 두 원소 교환
+  [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]];
+}   }
+</code></pre></div></div>
+
+<p>return arr;
+}
+```</p>
+
+<ul>
+  <li><strong>시간 복잡도</strong>: O(n²)</li>
+  <li><strong>공간 복잡도</strong>: O(1)</li>
+  <li><strong>장점</strong>: 교환 연산의 수가 버블 정렬보다 적음</li>
+  <li><strong>단점</strong>: 여전히 대규모 데이터셋에서는 비효율적임</li>
+</ul>
+
+<h2 id="삽입-정렬-insertion-sort">삽입 정렬 (Insertion Sort)</h2>
+
+<p>삽입 정렬은 배열의 각 원소를 이미 정렬된 부분 배열의 적절한 위치에 삽입하는 알고리즘입니다.</p>
+
+<p>```javascript
+function insertionSort(arr) {
+  const n = arr.length;</p>
+
+<p>for (let i = 1; i &lt; n; i++) {
+    const key = arr[i];
+    let j = i - 1;</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>while (j &gt;= 0 &amp;&amp; arr[j] &gt; key) {
+  arr[j + 1] = arr[j];
+  j--;
+}
+
+arr[j + 1] = key;   }
+</code></pre></div></div>
+
+<p>return arr;
+}
+```</p>
+
+<ul>
+  <li><strong>시간 복잡도</strong>: 평균 및 최악의 경우 O(n²), 최선의 경우 O(n)</li>
+  <li><strong>공간 복잡도</strong>: O(1)</li>
+  <li><strong>장점</strong>: 작은 데이터셋이나 거의 정렬된 데이터에서 효율적임</li>
+  <li><strong>단점</strong>: 대규모 데이터셋에서는 여전히 비효율적임</li>
+</ul>
+
+<h2 id="병합-정렬-merge-sort">병합 정렬 (Merge Sort)</h2>
+
+<p>병합 정렬은 분할 정복 방식을 사용하는 알고리즘으로, 배열을 반으로 나누고 각 부분을 정렬한 후 병합하는 과정을 반복합니다.</p>
+
+<p>```javascript
+function mergeSort(arr) {
+  if (arr.length &lt;= 1) {
+    return arr;
+  }</p>
+
+<p>const mid = Math.floor(arr.length / 2);
+  const left = mergeSort(arr.slice(0, mid));
+  const right = mergeSort(arr.slice(mid));</p>
+
+<p>return merge(left, right);
+}</p>
+
+<p>function merge(left, right) {
+  const result = [];
+  let leftIndex = 0;
+  let rightIndex = 0;</p>
+
+<p>while (leftIndex &lt; left.length &amp;&amp; rightIndex &lt; right.length) {
+    if (left[leftIndex] &lt; right[rightIndex]) {
+      result.push(left[leftIndex]);
+      leftIndex++;
+    } else {
+      result.push(right[rightIndex]);
+      rightIndex++;
+    }
+  }</p>
+
+<p>return result.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));
+}
+```</p>
+
+<ul>
+  <li><strong>시간 복잡도</strong>: O(n log n)</li>
+  <li><strong>공간 복잡도</strong>: O(n)</li>
+  <li><strong>장점</strong>: 안정적인 성능, 대규모 데이터셋에서도 효율적임</li>
+  <li><strong>단점</strong>: 추가 메모리 공간이 필요함</li>
+</ul>
+
+<h2 id="퀵-정렬-quick-sort">퀵 정렬 (Quick Sort)</h2>
+
+<p>퀵 정렬도 분할 정복 방식을 사용하는 알고리즘으로, 피벗을 선택하여 피벗보다 작은 원소와 큰 원소로 분할한 후 각 부분을 재귀적으로 정렬합니다.</p>
+
+<p>```javascript
+function quickSort(arr, left = 0, right = arr.length - 1) {
+  if (left &lt; right) {
+    const pivotIndex = partition(arr, left, right);
+    quickSort(arr, left, pivotIndex - 1);
+    quickSort(arr, pivotIndex + 1, right);
+  }</p>
+
+<p>return arr;
+}</p>
+
+<p>function partition(arr, left, right) {
+  const pivot = arr[right];
+  let i = left - 1;</p>
+
+<p>for (let j = left; j &lt; right; j++) {
+    if (arr[j] &lt;= pivot) {
+      i++;
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+  }</p>
+
+<p>[arr[i + 1], arr[right]] = [arr[right], arr[i + 1]];
+  return i + 1;
+}
+```</p>
+
+<ul>
+  <li><strong>시간 복잡도</strong>: 평균 O(n log n), 최악의 경우 O(n²)</li>
+  <li><strong>공간 복잡도</strong>: O(log n)</li>
+  <li><strong>장점</strong>: 실제 구현에서 매우 빠른 성능을 보임, 추가 메모리 공간이 적게 필요함</li>
+  <li><strong>단점</strong>: 최악의 경우 성능이 저하될 수 있음, 불안정 정렬임</li>
+</ul>
+
+<h2 id="힙-정렬-heap-sort">힙 정렬 (Heap Sort)</h2>
+
+<p>힙 정렬은 이진 힙 자료구조를 사용하여 배열을 정렬하는 알고리즘입니다.</p>
+
+<p>```javascript
+function heapSort(arr) {
+  const n = arr.length;</p>
+
+<p>// 최대 힙 구성
+  for (let i = Math.floor(n / 2) - 1; i &gt;= 0; i–) {
+    heapify(arr, n, i);
+  }</p>
+
+<p>// 힙에서 요소를 하나씩 추출
+  for (let i = n - 1; i &gt; 0; i–) {
+    [arr[0], arr[i]] = [arr[i], arr[0]];
+    heapify(arr, i, 0);
+  }</p>
+
+<p>return arr;
+}</p>
+
+<p>function heapify(arr, n, i) {
+  let largest = i;
+  const left = 2 * i + 1;
+  const right = 2 * i + 2;</p>
+
+<p>if (left &lt; n &amp;&amp; arr[left] &gt; arr[largest]) {
+    largest = left;
+  }</p>
+
+<p>if (right &lt; n &amp;&amp; arr[right] &gt; arr[largest]) {
+    largest = right;
+  }</p>
+
+<p>if (largest !== i) {
+    [arr[i], arr[largest]] = [arr[largest], arr[i]];
+    heapify(arr, n, largest);
+  }
+}
+```</p>
+
+<ul>
+  <li><strong>시간 복잡도</strong>: O(n log n)</li>
+  <li><strong>공간 복잡도</strong>: O(1)</li>
+  <li><strong>장점</strong>: 추가 메모리 공간이 필요하지 않음, 최악의 경우에도 O(n log n) 성능 보장</li>
+  <li><strong>단점</strong>: 불안정 정렬임, 실제 구현에서 퀵 정렬보다 느린 경우가 많음</li>
+</ul>
+
+<h2 id="정렬-알고리즘-비교">정렬 알고리즘 비교</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>알고리즘</th>
+      <th>시간 복잡도 (평균)</th>
+      <th>시간 복잡도 (최악)</th>
+      <th>공간 복잡도</th>
+      <th>안정성</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>버블 정렬</td>
+      <td>O(n²)</td>
+      <td>O(n²)</td>
+      <td>O(1)</td>
+      <td>안정</td>
+    </tr>
+    <tr>
+      <td>선택 정렬</td>
+      <td>O(n²)</td>
+      <td>O(n²)</td>
+      <td>O(1)</td>
+      <td>불안정</td>
+    </tr>
+    <tr>
+      <td>삽입 정렬</td>
+      <td>O(n²)</td>
+      <td>O(n²)</td>
+      <td>O(1)</td>
+      <td>안정</td>
+    </tr>
+    <tr>
+      <td>병합 정렬</td>
+      <td>O(n log n)</td>
+      <td>O(n log n)</td>
+      <td>O(n)</td>
+      <td>안정</td>
+    </tr>
+    <tr>
+      <td>퀵 정렬</td>
+      <td>O(n log n)</td>
+      <td>O(n²)</td>
+      <td>O(log n)</td>
+      <td>불안정</td>
+    </tr>
+    <tr>
+      <td>힙 정렬</td>
+      <td>O(n log n)</td>
+      <td>O(n log n)</td>
+      <td>O(1)</td>
+      <td>불안정</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="결론">결론</h2>
+
+<p>정렬 알고리즘의 선택은 데이터의 크기, 초기 정렬 상태, 메모리 제약, 안정성 요구 사항 등 여러 요소에 따라 달라집니다.</p>
+
+<ul>
+  <li><strong>작은 데이터셋</strong>: 삽입 정렬이 간단하고 효율적</li>
+  <li><strong>대규모 데이터셋</strong>: 퀵 정렬, 병합 정렬, 힙 정렬이 적합</li>
+  <li><strong>메모리 제약이 있는 경우</strong>: 힙 정렬이나 퀵 정렬이 좋은 선택</li>
+  <li><strong>안정성이 중요한 경우</strong>: 병합 정렬이나 삽입 정렬이 적합</li>
+</ul>
+
+<p>실제 프로그래밍 언어의 내장 정렬 함수는 대부분 퀵 정렬이나 병합 정렬의 변형, 또는 두 알고리즘을 조합한 하이브리드 정렬 알고리즘을 사용합니다.</p>]]></content><author><name></name></author><category term="algorithms" /><category term="정렬" /><category term="알고리즘" /><category term="시간복잡도" /><summary type="html"><![CDATA[정렬 알고리즘은 컴퓨터 과학에서 가장 기본적이고 중요한 알고리즘 중 하나입니다. 이 글에서는 주요 정렬 알고리즘의 작동 방식, 시간 복잡도, 그리고 각각의 장단점을 비교해 보겠습니다.]]></summary></entry><entry><title type="html">Express로 REST API 만들기</title><link href="http://localhost:4000/blog/backend/express-rest-api/" rel="alternate" type="text/html" title="Express로 REST API 만들기" /><published>2023-11-05T00:00:00+09:00</published><updated>2023-11-05T00:00:00+09:00</updated><id>http://localhost:4000/blog/backend/express-rest-api</id><content type="html" xml:base="http://localhost:4000/blog/backend/express-rest-api/"><![CDATA[<p>Express는 Node.js를 위한 빠르고 간결한 웹 프레임워크로, REST API를 구축하는 데 널리 사용됩니다. 이 글에서는 Express를 사용하여 기본적인 REST API를 만드는 방법을 알아보겠습니다.</p>
+
+<h2 id="express-설치-및-기본-설정">Express 설치 및 기본 설정</h2>
+
+<p>먼저 새 프로젝트를 생성하고 Express를 설치합니다:</p>
+
+<p>```bash
+mkdir express-api
+cd express-api
+npm init -y
+npm install express
+```</p>
+
+<p>이제 기본적인 Express 서버를 설정해 보겠습니다:</p>
+
+<p>```javascript
+// app.js
+const express = require(‘express’);
+const app = express();
+const port = process.env.PORT || 3000;</p>
+
+<p>// JSON 요청 본문 파싱
+app.use(express.json());</p>
+
+<p>// 기본 라우트
+app.get(‘/’, (req, res) =&gt; {
+  res.json({ message: ‘Express REST API에 오신 것을 환영합니다!’ });
+});</p>
+
+<p>// 서버 시작
+app.listen(port, () =&gt; {
+  console.log(<code class="language-plaintext highlighter-rouge">서버가 http://localhost:${port} 에서 실행 중입니다</code>);
+});
+```</p>
+
+<h2 id="rest-api-엔드포인트-구현">REST API 엔드포인트 구현</h2>
+
+<p>이제 사용자 리소스에 대한 CRUD(Create, Read, Update, Delete) 작업을 수행하는 REST API 엔드포인트를 구현해 보겠습니다:</p>
+
+<p>```javascript
+// app.js
+const express = require(‘express’);
+const app = express();
+const port = process.env.PORT || 3000;</p>
+
+<p>// JSON 요청 본문 파싱
+app.use(express.json());</p>
+
+<p>// 메모리 내 사용자 데이터 (실제 애플리케이션에서는 데이터베이스 사용)
+let users = [
+  { id: 1, name: ‘홍길동’, email: ‘hong@example.com’ },
+  { id: 2, name: ‘김철수’, email: ‘kim@example.com’ }
+];</p>
+
+<p>// 모든 사용자 조회 (READ)
+app.get(‘/api/users’, (req, res) =&gt; {
+  res.json(users);
+});</p>
+
+<p>// 특정 사용자 조회 (READ)
+app.get(‘/api/users/:id’, (req, res) =&gt; {
+  const id = parseInt(req.params.id);
+  const user = users.find(user =&gt; user.id === id);</p>
+
+<p>if (!user) {
+    return res.status(404).json({ message: ‘사용자를 찾을 수 없습니다’ });
+  }</p>
+
+<p>res.json(user);
+});</p>
+
+<p>// 새 사용자 생성 (CREATE)
+app.post(‘/api/users’, (req, res) =&gt; {
+  const { name, email } = req.body;</p>
+
+<p>if (!name || !email) {
+    return res.status(400).json({ message: ‘이름과 이메일은 필수 항목입니다’ });
+  }</p>
+
+<p>const newId = users.length &gt; 0 ? Math.max(…users.map(user =&gt; user.id)) + 1 : 1;
+  const newUser = { id: newId, name, email };</p>
+
+<p>users.push(newUser);
+  res.status(201).json(newUser);
+});</p>
+
+<p>// 사용자 정보 업데이트 (UPDATE)
+app.put(‘/api/users/:id’, (req, res) =&gt; {
+  const id = parseInt(req.params.id);
+  const { name, email } = req.body;</p>
+
+<p>if (!name || !email) {
+    return res.status(400).json({ message: ‘이름과 이메일은 필수 항목입니다’ });
+  }</p>
+
+<p>const userIndex = users.findIndex(user =&gt; user.id === id);</p>
+
+<p>if (userIndex === -1) {
+    return res.status(404).json({ message: ‘사용자를 찾을 수 없습니다’ });
+  }</p>
+
+<p>users[userIndex] = { id, name, email };
+  res.json(users[userIndex]);
+});</p>
+
+<p>// 사용자 삭제 (DELETE)
+app.delete(‘/api/users/:id’, (req, res) =&gt; {
+  const id = parseInt(req.params.id);
+  const userIndex = users.findIndex(user =&gt; user.id === id);</p>
+
+<p>if (userIndex === -1) {
+    return res.status(404).json({ message: ‘사용자를 찾을 수 없습니다’ });
+  }</p>
+
+<p>const deletedUser = users[userIndex];
+  users = users.filter(user =&gt; user.id !== id);</p>
+
+<p>res.json(deletedUser);
+});</p>
+
+<p>// 서버 시작
+app.listen(port, () =&gt; {
+  console.log(<code class="language-plaintext highlighter-rouge">서버가 http://localhost:${port} 에서 실행 중입니다</code>);
+});
+```</p>
+
+<h2 id="미들웨어-사용">미들웨어 사용</h2>
+
+<p>Express의 강력한 기능 중 하나는 미들웨어입니다. 미들웨어를 사용하여 요청 로깅, 오류 처리 등의 기능을 추가할 수 있습니다:</p>
+
+<p>```javascript
+// 요청 로깅 미들웨어
+app.use((req, res, next) =&gt; {
+  console.log(<code class="language-plaintext highlighter-rouge">${new Date().toISOString()} - ${req.method} ${req.url}</code>);
+  next();
+});</p>
+
+<p>// 오류 처리 미들웨어
+app.use((err, req, res, next) =&gt; {
+  console.error(err.stack);
+  res.status(500).json({ message: ‘서버 오류가 발생했습니다’ });
+});
+```</p>
+
+<h2 id="라우터-분리">라우터 분리</h2>
+
+<p>애플리케이션이 커지면 라우트를 별도의 파일로 분리하는 것이 좋습니다:</p>
+
+<p>```javascript
+// routes/users.js
+const express = require(‘express’);
+const router = express.Router();</p>
+
+<p>// 메모리 내 사용자 데이터
+let users = [
+  { id: 1, name: ‘홍길동’, email: ‘hong@example.com’ },
+  { id: 2, name: ‘김철수’, email: ‘kim@example.com’ }
+];</p>
+
+<p>// 모든 사용자 조회
+router.get(‘/’, (req, res) =&gt; {
+  res.json(users);
+});</p>
+
+<p>// 특정 사용자 조회
+router.get(‘/:id’, (req, res) =&gt; {
+  const id = parseInt(req.params.id);
+  const user = users.find(user =&gt; user.id === id);</p>
+
+<p>if (!user) {
+    return res.status(404).json({ message: ‘사용자를 찾을 수 없습니다’ });
+  }</p>
+
+<p>res.json(user);
+});</p>
+
+<p>// 새 사용자 생성
+router.post(‘/’, (req, res) =&gt; {
+  const { name, email } = req.body;</p>
+
+<p>if (!name || !email) {
+    return res.status(400).json({ message: ‘이름과 이메일은 필수 항목입니다’ });
+  }</p>
+
+<p>const newId = users.length &gt; 0 ? Math.max(…users.map(user =&gt; user.id)) + 1 : 1;
+  const newUser = { id: newId, name, email };</p>
+
+<p>users.push(newUser);
+  res.status(201).json(newUser);
+});</p>
+
+<p>// 사용자 정보 업데이트
+router.put(‘/:id’, (req, res) =&gt; {
+  const id = parseInt(req.params.id);
+  const { name, email } = req.body;</p>
+
+<p>if (!name || !email) {
+    return res.status(400).json({ message: ‘이름과 이메일은 필수 항목입니다’ });
+  }</p>
+
+<p>const userIndex = users.findIndex(user =&gt; user.id === id);</p>
+
+<p>if (userIndex === -1) {
+    return res.status(404).json({ message: ‘사용자를 찾을 수 없습니다’ });
+  }</p>
+
+<p>users[userIndex] = { id, name, email };
+  res.json(users[userIndex]);
+});</p>
+
+<p>// 사용자 삭제
+router.delete(‘/:id’, (req, res) =&gt; {
+  const id = parseInt(req.params.id);
+  const userIndex = users.findIndex(user =&gt; user.id === id);</p>
+
+<p>if (userIndex === -1) {
+    return res.status(404).json({ message: ‘사용자를 찾을 수 없습니다’ });
+  }</p>
+
+<p>const deletedUser = users[userIndex];
+  users = users.filter(user =&gt; user.id !== id);</p>
+
+<p>res.json(deletedUser);
+});</p>
+
+<p>module.exports = router;
+```</p>
+
+<p>```javascript
+// app.js
+const express = require(‘express’);
+const app = express();
+const port = process.env.PORT || 3000;
+const usersRouter = require(‘./routes/users’);</p>
+
+<p>// JSON 요청 본문 파싱
+app.use(express.json());</p>
+
+<p>// 요청 로깅 미들웨어
+app.use((req, res, next) =&gt; {
+  console.log(<code class="language-plaintext highlighter-rouge">${new Date().toISOString()} - ${req.method} ${req.url}</code>);
+  next();
+});</p>
+
+<p>// 라우터 사용
+app.use(‘/api/users’, usersRouter);</p>
+
+<p>// 기본 라우트
+app.get(‘/’, (req, res) =&gt; {
+  res.json({ message: ‘Express REST API에 오신 것을 환영합니다!’ });
+});</p>
+
+<p>// 오류 처리 미들웨어
+app.use((err, req, res, next) =&gt; {
+  console.error(err.stack);
+  res.status(500).json({ message: ‘서버 오류가 발생했습니다’ });
+});</p>
+
+<p>// 서버 시작
+app.listen(port, () =&gt; {
+  console.log(<code class="language-plaintext highlighter-rouge">서버가 http://localhost:${port} 에서 실행 중입니다</code>);
+});
+```</p>
+
+<h2 id="api-테스트">API 테스트</h2>
+
+<p>API를 테스트하기 위해 Postman이나 curl 명령어를 사용할 수 있습니다:</p>
+
+<p>```bash</p>
+<h1 id="모든-사용자-조회">모든 사용자 조회</h1>
+<p>curl http://localhost:3000/api/users</p>
+
+<h1 id="특정-사용자-조회">특정 사용자 조회</h1>
+<p>curl http://localhost:3000/api/users/1</p>
+
+<h1 id="새-사용자-생성">새 사용자 생성</h1>
+<p>curl -X POST -H “Content-Type: application/json” -d ‘{“name”:”이영희”,”email”:”lee@example.com”}’ http://localhost:3000/api/users</p>
+
+<h1 id="사용자-정보-업데이트">사용자 정보 업데이트</h1>
+<p>curl -X PUT -H “Content-Type: application/json” -d ‘{“name”:”이영희”,”email”:”updated@example.com”}’ http://localhost:3000/api/users/3</p>
+
+<h1 id="사용자-삭제">사용자 삭제</h1>
+<p>curl -X DELETE http://localhost:3000/api/users/3
+```</p>
+
+<h2 id="결론">결론</h2>
+
+<p>이 글에서는 Express를 사용하여 기본적인 REST API를 구축하는 방법을 알아보았습니다. Express는 간결하면서도 강력한 기능을 제공하여 Node.js에서 API를 개발하는 데 이상적인 프레임워크입니다.</p>
+
+<p>실제 애플리케이션에서는 MongoDB, PostgreSQL 등의 데이터베이스를 연결하고, JWT를 사용한 인증, 입력 유효성 검사 등의 기능을 추가하여 더 견고한 API를 구축할 수 있습니다.</p>]]></content><author><name></name></author><category term="backend" /><category term="Node.js" /><category term="Express" /><category term="REST API" /><summary type="html"><![CDATA[Express는 Node.js를 위한 빠르고 간결한 웹 프레임워크로, REST API를 구축하는 데 널리 사용됩니다. 이 글에서는 Express를 사용하여 기본적인 REST API를 만드는 방법을 알아보겠습니다.]]></summary></entry><entry><title type="html">서버 컴포넌트 vs 클라이언트 컴포넌트</title><link href="http://localhost:4000/blog/frontend/server-vs-client-components/" rel="alternate" type="text/html" title="서버 컴포넌트 vs 클라이언트 컴포넌트" /><published>2023-10-20T00:00:00+09:00</published><updated>2023-10-20T00:00:00+09:00</updated><id>http://localhost:4000/blog/frontend/server-vs-client-components</id><content type="html" xml:base="http://localhost:4000/blog/frontend/server-vs-client-components/"><![CDATA[<p>Next.js 13에서 도입된 React Server Components는 웹 애플리케이션 개발 방식에 큰 변화를 가져왔습니다. 이 글에서는 서버 컴포넌트와 클라이언트 컴포넌트의 차이점과 각각의 사용 사례에 대해 알아보겠습니다.</p>
+
+<h2 id="서버-컴포넌트와-클라이언트-컴포넌트의-차이점">서버 컴포넌트와 클라이언트 컴포넌트의 차이점</h2>
+
+<h3 id="서버-컴포넌트">서버 컴포넌트</h3>
+
+<p>서버 컴포넌트는 서버에서 렌더링되어 HTML로 변환된 후 클라이언트로 전송됩니다. 이는 다음과 같은 특징을 가집니다:</p>
+
+<ol>
+  <li><strong>번들 크기 감소</strong>: 서버 컴포넌트의 JavaScript 코드는 클라이언트로 전송되지 않습니다.</li>
+  <li><strong>데이터베이스 직접 접근</strong>: 서버 환경에서 실행되므로 데이터베이스에 직접 접근할 수 있습니다.</li>
+  <li><strong>환경 변수 접근</strong>: 서버 측 환경 변수에 안전하게 접근할 수 있습니다.</li>
+  <li><strong>캐싱</strong>: 서버에서 렌더링 결과를 캐싱하여 성능을 향상시킬 수 있습니다.</li>
+</ol>
+
+<p>하지만 서버 컴포넌트에서는 다음과 같은 제약이 있습니다:</p>
+
+<ol>
+  <li><strong>상태 사용 불가</strong>: <code class="language-plaintext highlighter-rouge">useState</code>와 같은 React 훅을 사용할 수 없습니다.</li>
+  <li><strong>이벤트 핸들러 사용 불가</strong>: <code class="language-plaintext highlighter-rouge">onClick</code>과 같은 이벤트 핸들러를 사용할 수 없습니다.</li>
+  <li><strong>브라우저 API 접근 불가</strong>: <code class="language-plaintext highlighter-rouge">window</code>, <code class="language-plaintext highlighter-rouge">document</code> 등의 브라우저 API에 접근할 수 없습니다.</li>
+</ol>
+
+<h3 id="클라이언트-컴포넌트">클라이언트 컴포넌트</h3>
+
+<p>클라이언트 컴포넌트는 기존의 React 컴포넌트와 동일하게 클라이언트에서 렌더링됩니다. ‘use client’ 지시문을 파일 상단에 추가하여 클라이언트 컴포넌트로 지정할 수 있습니다.</p>
+
+<p>```jsx
+‘use client’</p>
+
+<p>import { useState } from ‘react’</p>
+
+<p>export default function Counter() {
+  const [count, setCount] = useState(0)</p>
+
+<p>return (
+    &lt;div&gt;
+      &lt;p&gt;카운트: {count}&lt;/p&gt;
+      &lt;button onClick={() =&gt; setCount(count + 1)}&gt;증가&lt;/button&gt;
+    &lt;/div&gt;
+  )
+}
+```</p>
+
+<p>클라이언트 컴포넌트는 다음과 같은 특징을 가집니다:</p>
+
+<ol>
+  <li><strong>상태 및 효과 사용 가능</strong>: <code class="language-plaintext highlighter-rouge">useState</code>, <code class="language-plaintext highlighter-rouge">useEffect</code> 등의 React 훅을 사용할 수 있습니다.</li>
+  <li><strong>이벤트 핸들러 사용 가능</strong>: 사용자 상호작용을 처리할 수 있습니다.</li>
+  <li><strong>브라우저 API 접근 가능</strong>: 브라우저 환경의 API를 사용할 수 있습니다.</li>
+</ol>
+
+<h2 id="언제-어떤-컴포넌트를-사용해야-할까">언제 어떤 컴포넌트를 사용해야 할까?</h2>
+
+<h3 id="서버-컴포넌트를-사용해야-할-때">서버 컴포넌트를 사용해야 할 때</h3>
+
+<ol>
+  <li><strong>데이터 페칭이 필요한 경우</strong>: 데이터베이스나 API에서 데이터를 가져와야 할 때</li>
+  <li><strong>민감한 정보에 접근해야 하는 경우</strong>: API 키, 토큰 등의 민감한 정보를 사용해야 할 때</li>
+  <li><strong>대규모 의존성이 필요한 경우</strong>: 클라이언트로 전송되는 JavaScript 양을 줄이고 싶을 때</li>
+  <li><strong>SEO가 중요한 정적 콘텐츠</strong>: 검색 엔진 최적화가 필요한 정적 콘텐츠</li>
+</ol>
+
+<h3 id="클라이언트-컴포넌트를-사용해야-할-때">클라이언트 컴포넌트를 사용해야 할 때</h3>
+
+<ol>
+  <li><strong>상호작용이 필요한 경우</strong>: 사용자 입력, 애니메이션 등의 상호작용이 필요할 때</li>
+  <li><strong>상태 관리가 필요한 경우</strong>: 컴포넌트 내부 상태를 관리해야 할 때</li>
+  <li><strong>브라우저 API를 사용해야 하는 경우</strong>: <code class="language-plaintext highlighter-rouge">localStorage</code>, <code class="language-plaintext highlighter-rouge">window</code> 등의 브라우저 API를 사용해야 할 때</li>
+  <li><strong>이벤트 리스너가 필요한 경우</strong>: 클릭, 스크롤 등의 이벤트를 처리해야 할 때</li>
+</ol>
+
+<h2 id="서버-컴포넌트와-클라이언트-컴포넌트의-조합">서버 컴포넌트와 클라이언트 컴포넌트의 조합</h2>
+
+<p>실제 애플리케이션에서는 서버 컴포넌트와 클라이언트 컴포넌트를 적절히 조합하여 사용하는 것이 좋습니다. 다음은 그 예시입니다:</p>
+
+<p>```jsx
+// app/page.tsx (서버 컴포넌트)
+import { db } from ‘@/lib/db’
+import ClientCounter from ‘@/components/client-counter’</p>
+
+<p>export default async function Page() {
+  const products = await db.products.findMany()</p>
+
+<p>return (
+    &lt;div&gt;
+      &lt;h1&gt;제품 목록&lt;/h1&gt;
+      &lt;ul&gt;
+        {products.map(product =&gt; (
+          &lt;li key={product.id}&gt;{product.name}&lt;/li&gt;
+        ))}
+      &lt;/ul&gt;
+      <ClientCounter></ClientCounter>
+    &lt;/div&gt;
+  )
+}
+```</p>
+
+<p>```jsx
+// components/client-counter.tsx (클라이언트 컴포넌트)
+‘use client’</p>
+
+<p>import { useState } from ‘react’</p>
+
+<p>export default function ClientCounter() {
+  const [count, setCount] = useState(0)</p>
+
+<p>return (
+    &lt;div&gt;
+      &lt;p&gt;카운트: {count}&lt;/p&gt;
+      &lt;button onClick={() =&gt; setCount(count + 1)}&gt;증가&lt;/button&gt;
+    &lt;/div&gt;
+  )
+}
+```</p>
+
+<p>이 예시에서는 서버 컴포넌트에서 데이터베이스에서 제품 목록을 가져오고, 클라이언트 컴포넌트에서 카운터 기능을 구현했습니다.</p>
+
+<h2 id="결론">결론</h2>
+
+<p>Next.js 13의 App Router에서는 서버 컴포넌트와 클라이언트 컴포넌트를 적절히 조합하여 사용하는 것이 중요합니다. 각 컴포넌트의 특성을 이해하고, 상황에 맞게 선택하여 사용하면 더 효율적인 웹 애플리케이션을 구축할 수 있습니다.</p>]]></content><author><name></name></author><category term="frontend" /><category term="Next.js" /><category term="React" /><category term="서버 컴포넌트" /><summary type="html"><![CDATA[Next.js 13에서 도입된 React Server Components는 웹 애플리케이션 개발 방식에 큰 변화를 가져왔습니다. 이 글에서는 서버 컴포넌트와 클라이언트 컴포넌트의 차이점과 각각의 사용 사례에 대해 알아보겠습니다.]]></summary></entry><entry><title type="html">Next.js 13 App Router 소개</title><link href="http://localhost:4000/blog/frontend/nextjs-app-router/" rel="alternate" type="text/html" title="Next.js 13 App Router 소개" /><published>2023-10-15T00:00:00+09:00</published><updated>2023-10-15T00:00:00+09:00</updated><id>http://localhost:4000/blog/frontend/nextjs-app-router</id><content type="html" xml:base="http://localhost:4000/blog/frontend/nextjs-app-router/"><![CDATA[<p>Next.js 13에서 소개된 App Router는 React의 최신 기능을 활용하여 더 나은 개발자 경험과 성능을 제공합니다. 이 글에서는 App Router의 주요 기능과 장점에 대해 알아보겠습니다.</p>
+
+<h2 id="app-router란">App Router란?</h2>
+
+<p>App Router는 Next.js의 새로운 라우팅 시스템으로, 기존의 Pages Router를 대체합니다. App Router는 React Server Components를 기반으로 하며, 파일 시스템 기반 라우팅을 사용합니다.</p>
+
+<h2 id="주요-기능">주요 기능</h2>
+
+<h3 id="1-서버-컴포넌트">1. 서버 컴포넌트</h3>
+
+<p>App Router는 기본적으로 모든 컴포넌트를 서버 컴포넌트로 취급합니다. 서버 컴포넌트는 서버에서 렌더링되어 클라이언트로 전송되므로, 클라이언트 측 JavaScript 번들 크기를 줄일 수 있습니다.</p>
+
+<p>```jsx
+// app/page.tsx
+// 이 컴포넌트는 기본적으로 서버 컴포넌트입니다
+export default function Page() {
+  return &lt;h1&gt;안녕하세요, Next.js!&lt;/h1&gt;
+}
+```</p>
+
+<h3 id="2-클라이언트-컴포넌트">2. 클라이언트 컴포넌트</h3>
+
+<p>클라이언트 측 상호작용이 필요한 경우, ‘use client’ 지시문을 사용하여 클라이언트 컴포넌트를 만들 수 있습니다.</p>
+
+<p>```jsx
+// components/counter.tsx
+‘use client’</p>
+
+<p>import { useState } from ‘react’</p>
+
+<p>export default function Counter() {
+  const [count, setCount] = useState(0)</p>
+
+<p>return (
+    &lt;div&gt;
+      &lt;p&gt;카운트: {count}&lt;/p&gt;
+      &lt;button onClick={() =&gt; setCount(count + 1)}&gt;증가&lt;/button&gt;
+    &lt;/div&gt;
+  )
+}
+```</p>
+
+<h3 id="3-레이아웃">3. 레이아웃</h3>
+
+<p>App Router는 중첩된 레이아웃을 쉽게 구현할 수 있게 해줍니다. layout.tsx 파일을 사용하여 여러 페이지에서 공유되는 UI 요소를 정의할 수 있습니다.</p>
+
+<p>```jsx
+// app/blog/layout.tsx
+export default function BlogLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return (
+    &lt;div&gt;
+      &lt;nav&gt;블로그 네비게이션&lt;/nav&gt;
+      &lt;main&gt;{children}&lt;/main&gt;
+      &lt;footer&gt;블로그 푸터&lt;/footer&gt;
+    &lt;/div&gt;
+  )
+}
+```</p>
+
+<h3 id="4-데이터-페칭">4. 데이터 페칭</h3>
+
+<p>서버 컴포넌트에서는 async/await를 사용하여 데이터를 가져올 수 있습니다. 이는 클라이언트 측 JavaScript 없이도 데이터를 가져올 수 있게 해줍니다.</p>
+
+<p>```jsx
+// app/posts/[id]/page.tsx
+async function getPost(id) {
+  const res = await fetch(<code class="language-plaintext highlighter-rouge">https://api.example.com/posts/${id}</code>)
+  return res.json()
+}</p>
+
+<p>export default async function Post({ params }) {
+  const post = await getPost(params.id)</p>
+
+<p>return (
+    &lt;article&gt;
+      &lt;h1&gt;{post.title}&lt;/h1&gt;
+      &lt;p&gt;{post.content}&lt;/p&gt;
+    &lt;/article&gt;
+  )
+}
+```</p>
+
+<h2 id="결론">결론</h2>
+
+<p>Next.js 13의 App Router는 React의 최신 기능을 활용하여 더 나은 개발자 경험과 성능을 제공합니다. 서버 컴포넌트, 중첩 레이아웃, 간소화된 데이터 페칭 등의 기능을 통해 더 효율적인 웹 애플리케이션을 구축할 수 있습니다.</p>
+
+<p>다음 글에서는 서버 컴포넌트와 클라이언트 컴포넌트의 차이점과 각각의 사용 사례에 대해 더 자세히 알아보겠습니다.</p>]]></content><author><name></name></author><category term="frontend" /><category term="Next.js" /><category term="React" /><category term="프론트엔드" /><summary type="html"><![CDATA[Next.js 13에서 소개된 App Router는 React의 최신 기능을 활용하여 더 나은 개발자 경험과 성능을 제공합니다. 이 글에서는 App Router의 주요 기능과 장점에 대해 알아보겠습니다.]]></summary></entry></feed>
