@@ -1,0 +1,26 @@
+---
+layout: default
+---
+
+<div class="category-page">
+  <h1 class="category-title">{{ page.title }}</h1>
+  <p class="category-description">{{ page.description }}</p>
+
+  <div class="posts-list">
+    {% assign filtered_posts = site.posts | where: "categories", page.category %}
+    {% for post in filtered_posts %}
+      <div class="post-card">
+        <h2 class="post-title">
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </h2>
+        <div class="post-meta">
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y년 %m월 %d일" }}</time>
+        </div>
+        <div class="post-excerpt">
+          {{ post.excerpt | strip_html | truncatewords: 30 }}
+        </div>
+        <a href="{{ post.url | relative_url }}" class="read-more">더 읽기</a>
+      </div>
+    {% endfor %}
+  </div>
+</div>

@@ -1,0 +1,29 @@
+- name: frontend
+  title: 프론트엔드
+  description: 프론트엔드 개발 관련 글
+  subcategories:
+    - name: react
+      title: React
+      description: React 관련 글
+    - name: nextjs
+      title: Next.js
+      description: Next.js 관련 글
+
+- name: backend
+  title: 백엔드
+  description: 백엔드 개발 관련 글
+  subcategories:
+    - name: nodejs
+      title: Node.js
+      description: Node.js 관련 글
+    - name: database
+      title: 데이터베이스
+      description: 데이터베이스 관련 글
+
+- name: devops
+  title: DevOps
+  description: DevOps 관련 글
+
+- name: algorithms
+  title: 알고리즘
+  description: 알고리즘 관련 글

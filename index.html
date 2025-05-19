@@ -1,0 +1,35 @@
+---
+layout: default
+---
+
+<div class="home">
+  <h1 class="page-heading">최근 글</h1>
+  
+  <div class="posts-list">
+    {% for post in site.posts limit:6 %}
+      <div class="post-card">
+        <h2 class="post-title">
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </h2>
+        <div class="post-meta">
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y년 %m월 %d일" }}</time>
+          {% if post.categories %}
+            <span class="post-categories">
+              {% for category in post.categories %}
+                <a href="{{ site.baseurl }}/category/{{ category | slugify }}/" class="tag">{{ category }}</a>
+              {% endfor %}
+            </span>
+          {% endif %}
+        </div>
+        <div class="post-excerpt">
+          {{ post.excerpt | strip_html | truncatewords: 30 }}
+        </div>
+        <a href="{{ post.url | relative_url }}" class="read-more">더 읽기</a>
+      </div>
+    {% endfor %}
+  </div>
+  
+  <div class="view-all">
+    <a href="{{ '/archive/' | relative_url }}" class="view-all-link">모든 글 보기</a>
+  </div>
+</div>
