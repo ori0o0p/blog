@@ -13,9 +13,4 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   })
 
-  // 기본적으로 첫 번째 카테고리 확장
-  const firstCategory = document.querySelector(".category-item:first-child .toggle-btn")
-  if (firstCategory) {
-    firstCategory.click()
-  }
 })

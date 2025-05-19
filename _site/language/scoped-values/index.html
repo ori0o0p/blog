@@ -3,25 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>소개 | Seungwon</title>
+  <title>Scoped Values | Seungwon</title>
   <link rel="stylesheet" href="/blog/assets/css/main.css">
   <link rel="stylesheet" href="/blog/assets/css/syntax.css">
   <script src="/blog/assets/js/theme-toggle.js" defer></script>
   <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>소개 | Seungwon</title>
+<title>Scoped Values | Seungwon</title>
 <meta name="generator" content="Jekyll v4.3.4" />
-<meta property="og:title" content="소개" />
+<meta property="og:title" content="Scoped Values" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="개발 블로그" />
-<meta property="og:description" content="개발 블로그" />
-<link rel="canonical" href="http://localhost:4000/blog/about/" />
-<meta property="og:url" content="http://localhost:4000/blog/about/" />
+<meta name="description" content="특정 스레드 또는 작업으로 제한되는 범위 값을 생성할 수 있는 기능이다." />
+<meta property="og:description" content="특정 스레드 또는 작업으로 제한되는 범위 값을 생성할 수 있는 기능이다." />
+<link rel="canonical" href="http://localhost:4000/blog/language/scoped-values/" />
+<meta property="og:url" content="http://localhost:4000/blog/language/scoped-values/" />
 <meta property="og:site_name" content="Seungwon" />
-<meta property="og:type" content="website" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-05-26T00:00:00+09:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="소개" />
+<meta property="twitter:title" content="Scoped Values" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","description":"개발 블로그","headline":"소개","name":"Seungwon","url":"http://localhost:4000/blog/about/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-05-26T00:00:00+09:00","datePublished":"2024-05-26T00:00:00+09:00","description":"특정 스레드 또는 작업으로 제한되는 범위 값을 생성할 수 있는 기능이다.","headline":"Scoped Values","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/blog/language/scoped-values/"},"url":"http://localhost:4000/blog/language/scoped-values/"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -575,34 +576,92 @@
       </aside>
       
       <main class="content">
-        <div class="about">
-  <h1 class="page-heading">소개</h1>
+        <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">Scoped Values</h1>
+    <div class="post-meta">
+      <div class="post-date">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        <time datetime="2024-05-26T00:00:00+09:00">2024년 05월 26일</time>
+      </div>
+      
+      <div class="post-reading-time">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        
+        
+          1분 소요
+        
+      </div>
+      
+      
+      <div class="post-categories-tags">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+          <line x1="7" y1="7" x2="7.01" y2="7"></line>
+        </svg>
+        <div class="tags-list">
+          
+            <a href="/blog/category/language" class="tag">language</a>
+          
+          
+            <a href="/blog/tags/java" class="tag">Java</a>
+          
+            <a href="/blog/tags/java-21" class="tag">Java 21</a>
+          
+            <a href="/blog/tags/scoped-values" class="tag">Scoped Values</a>
+          
+        </div>
+      </div>
+      
+    </div>
+  </header>
+
+  <div class="post-content">
+    <p>특정 스레드 또는 작업으로 제한되는 범위 값을 생성할 수 있는 기능이다.</p>
+
+<p>스레드 로컬 변수와 비슷하지만, 
+이 범위 값은 virtual threads, structured concurrency와 함께 작동되도록 설계되었다.</p>
+
+<p>복잡한 동기화나 잠금 메커니즘 없이 구조화된 방식으로 작업과 가상 스레드 간에 값을 전달 가능하고,</p>
+
+<p>스레드 로컬 변수와 달리 범위 값은 한 번 작성되며 스레드 실행 중 제한된 기간 동안만 사용할 수 있다
+<code class="language-plaintext highlighter-rouge">ScopedValue&lt;&gt;</code></p>
+
+  </div>
+
   
-  <div class="about-content">
-    <p>
-      안녕하세요! 블로그에 오신 것을 환영합니다. <br/>
-      이 블로그는 <a href="https://github.com/ori0o0p">@ori0o0p</a>이 공부했던 내용을 정리하는 공간입니다.
-    </p>
-    
-    <h2>블로그 주요 내용</h2>
+  <div class="related-posts">
+    <h2>관련 글</h2>
     <ul>
-      <li>백엔드 개발</li>
-      <li>데이터베이스 설계 및 전략</li>
-      <li>개발 언어</li>
-    </ul>
-    
-    <h2>오류를 발견하면 어떻게 하나요?</h2>
-    <p>
-      저는 한국어가 서툴고 철자 실수가 잦습니다. <br/>
-      학습 과정에서 오류나 의심 사항을 발견하시면 다음 세 가지 방법으로 피드백 주시길 바랍니다.
-    </p>
-    <ul>
-      <li>이메일: <a href="mailto:tmddnjsrla99@gmail.com">tmddnjsrla99@gmail.com</a></li>
-      <li>GitHub: <a href="https://github.com/ori0o0p" target="_blank">github.com/ori0o0p</a></li>
-      <li>LinkedIn: <a href="https://www.linkedin.com/in/ori0o0p" target="_blank">linkedin.com/ori0o0p</a></li>
+      
+        <li>
+          <a href="/blog/language/pecs/">PECS</a>
+          <small>2024년 07월 28일</small>
+        </li>
+      
+        <li>
+          <a href="/blog/language/java-throwing-exception/">Java Throwing Exception</a>
+          <small>2024년 06월 17일</small>
+        </li>
+      
+        <li>
+          <a href="/blog/language/kotlin-coroutines/">Coroutines</a>
+          <small>2024년 05월 26일</small>
+        </li>
+      
     </ul>
   </div>
-</div>
+  
+
+</article>
 
       </main>
     </div>

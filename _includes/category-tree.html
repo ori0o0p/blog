@@ -1,42 +1,71 @@
+<style>
+  /* 클릭 가능한 요소임을 나타내기 위한 커서 스타일 */
+  .category-header .folder-icon,
+  .category-header .category-link,
+  .subcategory-header .folder-icon,
+  .subcategory-header .category-link {
+    cursor: pointer;
+  }
+  /* 아이콘과 텍스트 정렬을 위한 스타일 (필요에 따라 조정) */
+  .category-header, .subcategory-header {
+    display: flex;
+    align-items: center;
+  }
+  .toggle-btn {
+    flex-shrink: 0; /* 버튼 크기 고정 */
+  }
+  .folder-icon {
+    margin-left: 4px; /* 버튼과 폴더 아이콘 사이 간격 */
+    /* flex-shrink: 0; */
+  }
+  .post-item {
+    /* margin-left: 20px; 게시물 들여쓰기 */
+  }
+  .subcategory-item .subcategory-header {
+    /* padding-left: 20px; */ /* 서브카테고리 들여쓰기용 패딩 */
+  }
+  .subcategory-item .posts-container {
+    /* padding-left: 40px; */ /* 서브카테고리 내 게시물 들여쓰기용 패딩 */
+  }
+</style>
+
 <div class="category-tree">
-  <h2 class="tree-title">카테고리</h2>
-  
+  <h2 class="tree-title">Category</h2>
+
   <div class="tree-container">
     {% for category_data in site.data.categories %}
       <div class="category-item">
         <div class="category-header">
-          <button class="toggle-btn" data-target="{{ category_data.name | slugify }}">
-            <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <button class="toggle-btn" data-target="{{ category_data.name | slugify }}" aria-expanded="false" aria-controls="{{ category_data.name | slugify }}-container">
+            <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em; height:1em;">
               <polyline points="9 18 15 12 9 6"></polyline>
             </svg>
           </button>
-          <svg class="folder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg class="folder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em; height:1em;">
             <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
           </svg>
-          <a href="{{ site.baseurl }}/category/{{ category_data.name | slugify }}/" class="category-link">{{ category_data.title }}</a>
+          <span class="category-link">{{ category_data.title }}</span>
         </div>
-        
-        <div class="subcategory-container" id="{{ category_data.name | slugify }}-container">
+
+        <div class="subcategory-container" id="{{ category_data.name | slugify }}-container" style="display: none;">
           {% if category_data.subcategories %}
             {% for subcategory in category_data.subcategories %}
-              <div class="subcategory-item">
-                <div class="subcategory-header">
-                  <button class="toggle-btn" data-target="{{ subcategory.name | slugify }}">
-                    <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <div class="subcategory-item" style="margin-left: 20px;"> <div class="subcategory-header">
+                  <button class="toggle-btn" data-target="{{ subcategory.name | slugify }}" aria-expanded="false" aria-controls="{{ subcategory.name | slugify }}-container">
+                    <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em; height:1em;">
                       <polyline points="9 18 15 12 9 6"></polyline>
                     </svg>
                   </button>
-                  <svg class="folder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <svg class="folder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em; height:1em;">
                     <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
                   </svg>
-                  <a href="{{ site.baseurl }}/category/{{ subcategory.name | slugify }}/" class="category-link">{{ subcategory.title }}</a>
+                  <span class="category-link">{{ subcategory.title }}</span>
                 </div>
-                
-                <div class="posts-container" id="{{ subcategory.name | slugify }}-container">
+
+                <div class="posts-container" id="{{ subcategory.name | slugify }}-container" style="display: none;">
                   {% assign filtered_posts = site.posts | where: "subcategory", subcategory.name %}
                   {% for post in filtered_posts %}
-                    <div class="post-item">
-                      <svg class="file-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <div class="post-item" style="margin-left: 20px;"> <svg class="file-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em; height:1em; margin-right: 4px;">
                         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                         <polyline points="14 2 14 8 20 8"></polyline>
                         <line x1="16" y1="13" x2="8" y2="13"></line>
@@ -50,11 +79,10 @@
               </div>
             {% endfor %}
           {% endif %}
-          
+
           {% assign direct_posts = site.posts | where: "category", category_data.name | where_exp: "post", "post.subcategory == nil" %}
           {% for post in direct_posts %}
-            <div class="post-item">
-              <svg class="file-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <div class="post-item" style="margin-left: 20px;"> <svg class="file-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em; height:1em; margin-right: 4px;">
                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                 <polyline points="14 2 14 8 20 8"></polyline>
                 <line x1="16" y1="13" x2="8" y2="13"></line>
@@ -69,3 +97,62 @@
     {% endfor %}
   </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // 토글 기능을 수행하는 함수
+    function toggleContent(buttonElement) {
+      const targetId = buttonElement.dataset.target + '-container';
+      const targetContainer = document.getElementById(targetId);
+      const icon = buttonElement.querySelector('.chevron-icon');
+      const isExpanded = buttonElement.getAttribute('aria-expanded') === 'true';
+
+      if (targetContainer) {
+        if (isExpanded) {
+          targetContainer.style.display = 'none';
+          buttonElement.setAttribute('aria-expanded', 'false');
+          if (icon) icon.style.transform = 'rotate(0deg)';
+        } else {
+          targetContainer.style.display = 'block'; // 또는 'flex' 등
+          buttonElement.setAttribute('aria-expanded', 'true');
+          if (icon) icon.style.transform = 'rotate(90deg)';
+        }
+      }
+    }
+
+    // 토글 버튼에 이벤트 리스너 추가
+    const toggleButtons = document.querySelectorAll('.toggle-btn');
+    toggleButtons.forEach(button => {
+      button.addEventListener('click', function () {
+        toggleContent(this);
+      });
+    });
+
+    // 폴더 아이콘 및 카테고리/서브카테고리 이름에 클릭 이벤트 리스너 추가
+    const clickableHeaders = document.querySelectorAll('.category-header, .subcategory-header');
+    clickableHeaders.forEach(header => {
+      const folderIcon = header.querySelector('.folder-icon');
+      const categoryLink = header.querySelector('.category-link'); // span 태그
+      const associatedToggleButton = header.querySelector('.toggle-btn');
+
+      if (associatedToggleButton) { // 연관된 토글 버튼이 있을 경우에만
+        if (folderIcon) {
+          folderIcon.addEventListener('click', function() {
+            toggleContent(associatedToggleButton);
+          });
+        }
+        if (categoryLink) {
+          categoryLink.addEventListener('click', function() {
+            toggleContent(associatedToggleButton);
+          });
+        }
+      }
+    });
+
+    // (선택 사항) 초기 상태에서 특정 카테고리 열기 (예: 첫 번째 주 카테고리)
+    // const firstMainCategoryToggle = document.querySelector('.category-item > .category-header .toggle-btn');
+    // if (firstMainCategoryToggle) {
+    //    toggleContent(firstMainCategoryToggle); // 페이지 로드 시 열기
+    // }
+  });
+</script>

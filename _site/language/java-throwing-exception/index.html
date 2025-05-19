@@ -3,25 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>소개 | Seungwon</title>
+  <title>Java Throwing Exception | Seungwon</title>
   <link rel="stylesheet" href="/blog/assets/css/main.css">
   <link rel="stylesheet" href="/blog/assets/css/syntax.css">
   <script src="/blog/assets/js/theme-toggle.js" defer></script>
   <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>소개 | Seungwon</title>
+<title>Java Throwing Exception | Seungwon</title>
 <meta name="generator" content="Jekyll v4.3.4" />
-<meta property="og:title" content="소개" />
+<meta property="og:title" content="Java Throwing Exception" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="개발 블로그" />
-<meta property="og:description" content="개발 블로그" />
-<link rel="canonical" href="http://localhost:4000/blog/about/" />
-<meta property="og:url" content="http://localhost:4000/blog/about/" />
+<meta name="description" content="자바를 넘어서 모든 SW의 예외 처리는 매우 중요하다. 이를 통해 개발자는 예상치 못한 오류를 적절하게 해결할 수 있어 해당 SW의 품질을 보장할 수 있는 그런 작업이다." />
+<meta property="og:description" content="자바를 넘어서 모든 SW의 예외 처리는 매우 중요하다. 이를 통해 개발자는 예상치 못한 오류를 적절하게 해결할 수 있어 해당 SW의 품질을 보장할 수 있는 그런 작업이다." />
+<link rel="canonical" href="http://localhost:4000/blog/language/java-throwing-exception/" />
+<meta property="og:url" content="http://localhost:4000/blog/language/java-throwing-exception/" />
 <meta property="og:site_name" content="Seungwon" />
-<meta property="og:type" content="website" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-06-17T00:00:00+09:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="소개" />
+<meta property="twitter:title" content="Java Throwing Exception" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","description":"개발 블로그","headline":"소개","name":"Seungwon","url":"http://localhost:4000/blog/about/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-06-17T00:00:00+09:00","datePublished":"2024-06-17T00:00:00+09:00","description":"자바를 넘어서 모든 SW의 예외 처리는 매우 중요하다. 이를 통해 개발자는 예상치 못한 오류를 적절하게 해결할 수 있어 해당 SW의 품질을 보장할 수 있는 그런 작업이다.","headline":"Java Throwing Exception","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/blog/language/java-throwing-exception/"},"url":"http://localhost:4000/blog/language/java-throwing-exception/"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -575,34 +576,178 @@
       </aside>
       
       <main class="content">
-        <div class="about">
-  <h1 class="page-heading">소개</h1>
+        <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">Java Throwing Exception</h1>
+    <div class="post-meta">
+      <div class="post-date">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        <time datetime="2024-06-17T00:00:00+09:00">2024년 06월 17일</time>
+      </div>
+      
+      <div class="post-reading-time">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        
+        
+          2분 소요
+        
+      </div>
+      
+      
+      <div class="post-categories-tags">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+          <line x1="7" y1="7" x2="7.01" y2="7"></line>
+        </svg>
+        <div class="tags-list">
+          
+            <a href="/blog/category/language" class="tag">language</a>
+          
+          
+            <a href="/blog/tags/java" class="tag">Java</a>
+          
+            <a href="/blog/tags/exception" class="tag">Exception</a>
+          
+            <a href="/blog/tags/exception-handling" class="tag">Exception Handling</a>
+          
+        </div>
+      </div>
+      
+    </div>
+  </header>
+
+  <div class="post-content">
+    <p>자바를 넘어서 모든 SW의 예외 처리는 매우 중요하다. 
+이를 통해 개발자는 예상치 못한 오류를 적절하게 해결할 수 있어 해당 SW의 품질을 보장할 수 있는 그런 작업이다.</p>
+
+<p>자바 프로그래밍 내에서의 예외 처리를 이해해보자.</p>
+
+<h2 id="exception이란">Exception이란?</h2>
+
+<p>자바 프로그래밍 내에서의 예외는 런타임 환경에서 발생하여, 프로그램이 정상적인 진행을 하지 못하게 하는 사건 즉 시스템은 올바르게 이루어져 있지만, 개발자의 로직의 오류를 말한다. 
+보통 0으로 나누기, null인 객체에 접근, 존재하지 않는 파일에 접근 등의 예외 상황이 있다.</p>
+
+<h2 id="throw-statement">Throw statement</h2>
+<p>자바를 사용해 개발 또는 학습을 진행하였다면, throw, throws 등의 구문. 키워드를 본 적이 있을 것이다.</p>
+
+<p>예를 들면 이런 식이다.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">method1</span><span class="o">()</span> <span class="kd">throws</span> <span class="nc">InterruptedException</span> <span class="o">{</span>
+		<span class="nc">Thread</span><span class="o">.</span><span class="na">sleep</span><span class="o">(</span><span class="mi">5000L</span><span class="o">);</span>
+		
+		<span class="k">throw</span> <span class="k">new</span> <span class="nf">RuntimeException</span><span class="o">();</span>
+<span class="o">}</span> <span class="c1">// 극단적인 예시.</span>
+</code></pre></div></div>
+<p>이 파트에선 throw. 메서드 바디 내에서 예외를 발생. 혹은 던지는 것을 학습할 것이다.</p>
+
+<p>자바에서 throw 구문을 사용해 예외를 발생시키는 것은 간단하다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">throw</span> <span class="nc">ThrowableObject</span><span class="o">;</span> 
+</code></pre></div></div>
+
+<p>ThrowableObject은 자바의 모든 예외에 대한 기본 클래스인 Throwable를 확장하는 클래스의 인스턴스이어야 한다.</p>
+
+<p>뭐 예를 들면 많이들 알고 있는 RuntimeException이라던가 예외들이 throw 구문 뒤에 위치할 수 있다.</p>
+
+<h2 id="checked-unchecked-exception"><strong>Checked.’ Unchecked Exception</strong></h2>
+
+<p>Checked Exception은 개발자가 무조건 처리해야하는 컴파일 시점에서 발생하는 오류이다.</p>
+
+<p>예로 들자면. Thread.sleep 메서드를 사용하고 싶을 때 일반 적인 메서드 블록에 작성하면 빨간 줄이 생기는 모습을 본 적이 있을 것이다.</p>
+
+<p>해당 에러를 확인하면. Unhandled exception: ..InterruptedException을 확인 할 수 있는데.</p>
+
+<p>InterruptedException를 핸들링 해줘야한다고 한다. 왜 그럴까?</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">sleep</span><span class="o">(</span><span class="kt">long</span> <span class="n">millis</span><span class="o">)</span> <span class="o">**</span><span class="kd">throws</span> <span class="nc">InterruptedException</span><span class="o">**</span> <span class="o">{</span>
+    <span class="o">...</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>sleep 메서드의 구현을 보니 <strong>throws InterruptedException</strong>이 작성되어 있는 걸 볼 수 있다.</p>
+
+<p>아! throws는 전염되는 구나! 그렇다. .</p>
+
+<p>throws를 사용한 건 메서드 블록이 해당 예외를 발생시킬 수 있다고 작성한 것이고,</p>
+
+<p>왜 명시를 해야하는 걸까?
+InterruptedException은 checked exception으로 외부의 리소스, 서비스와 상호작용해야할 때 잠재적인 예외 상황을 기호화해서 예측할 수 없게 실패할 수 있는 오류 처리를 해야하기 때문이다.</p>
+
+<p>Unchecked Exception은 개발자의 예외 처리가 필수가 아니고, 런타임 시점에서 발생할 수 있는 예외이다.</p>
+
+<p>주로 코드의 결함이나, 논리적 문제에서 발생한다.</p>
+
+<p>예를 들면</p>
+
+<ul>
+  <li>유효한 범위가 아닌 배열 인덱스에 접근하였을 때 (ArrayIndexOutOfBoundsException)</li>
+  <li>null인 객체에 접근을 했을 때 (NullPointerException)</li>
+</ul>
+
+<p>발생하는 예외이다.</p>
+
+<h2 id="spring-controlleradvice">Spring ControllerAdvice</h2>
+
+<p>ControllerAdvice 어노테이션을 자세히 알아보지는 않을 것이다.</p>
+
+<p>그저 독자들이 주로 스프링 부트를 사용해 애플리케이션을 개발하고 있을텐데, 전역적으로 예외를 잡아주는 ControllerAdvice를 사용할 거라 생각했다.</p>
+
+<p>그렇다면 본인은 Custom Exception을 직접 비즈니스에 맞게 작성하여 사용하고 있는가?</p>
+
+<h2 id="정말-잘-사용하고-있을까">정말 잘 사용하고 있을까?</h2>
+
+<p>비즈니스 로직이 커지면 예외 상황은 더 늘어날 수 밖에 없다. 하지만 예외 처리를 할 때 생기는 비용을 생각해본 적이 있나?</p>
+
+<p>예외 생성 비용은 비싸다. 예외 발생 회수가 커질 수록 문제가 생길 수도 있다.</p>
+
+<p>예외 생성 비용에 가장 영향을 미치는 요소는 trace로 예외 발생 경로이다.</p>
+
+<p>이를 해결하기 위해 stack trace를 갖지 않도록 설정할 수 있는데,</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kd">synchronized</span> <span class="nc">Throwable</span> <span class="nf">fillInStackTrace</span><span class="o">()</span> <span class="o">{</span>
+  <span class="k">return</span> <span class="k">this</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>위와 같이 fillInStackTrace 메서드를 아무 stack trace를 갖지 않도록 override할 수 있다.</p>
+
+<p>또 위와 같이 생성했다면 static final 필드에 미리 예외를 캐싱해두고 사용하면 비용을 더 줄일 수 있을 것이다.</p>
+
+  </div>
+
   
-  <div class="about-content">
-    <p>
-      안녕하세요! 블로그에 오신 것을 환영합니다. <br/>
-      이 블로그는 <a href="https://github.com/ori0o0p">@ori0o0p</a>이 공부했던 내용을 정리하는 공간입니다.
-    </p>
-    
-    <h2>블로그 주요 내용</h2>
+  <div class="related-posts">
+    <h2>관련 글</h2>
     <ul>
-      <li>백엔드 개발</li>
-      <li>데이터베이스 설계 및 전략</li>
-      <li>개발 언어</li>
-    </ul>
-    
-    <h2>오류를 발견하면 어떻게 하나요?</h2>
-    <p>
-      저는 한국어가 서툴고 철자 실수가 잦습니다. <br/>
-      학습 과정에서 오류나 의심 사항을 발견하시면 다음 세 가지 방법으로 피드백 주시길 바랍니다.
-    </p>
-    <ul>
-      <li>이메일: <a href="mailto:tmddnjsrla99@gmail.com">tmddnjsrla99@gmail.com</a></li>
-      <li>GitHub: <a href="https://github.com/ori0o0p" target="_blank">github.com/ori0o0p</a></li>
-      <li>LinkedIn: <a href="https://www.linkedin.com/in/ori0o0p" target="_blank">linkedin.com/ori0o0p</a></li>
+      
+        <li>
+          <a href="/blog/language/pecs/">PECS</a>
+          <small>2024년 07월 28일</small>
+        </li>
+      
+        <li>
+          <a href="/blog/language/kotlin-coroutines/">Coroutines</a>
+          <small>2024년 05월 26일</small>
+        </li>
+      
+        <li>
+          <a href="/blog/language/scoped-values/">Scoped Values</a>
+          <small>2024년 05월 26일</small>
+        </li>
+      
     </ul>
   </div>
-</div>
+  
+
+</article>
 
       </main>
     </div>

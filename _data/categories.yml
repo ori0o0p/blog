@@ -1,29 +1,63 @@
-- name: frontend
-  title: 프론트엔드
-  description: 프론트엔드 개발 관련 글
+- name: programming
+  title: Programming
+  description: 프로그래밍 관련 글
   subcategories:
-    - name: react
-      title: React
-      description: React 관련 글
-    - name: nextjs
-      title: Next.js
-      description: Next.js 관련 글
+    - name: oop
+      title: OOP
+      description: 객체 지향 프로그래밍 관련 글
+    - name: fp
+      title: FP
+      description: 함수형 프로그래밍 관련 글
+    - name: reactive
+      title: Reactive
+      description: 리액티브 프로그래밍 관련 글
+    - name: tdd
+      title: TDD
+      description: 테스트 주도 개발 관련 글
+    - name: ddd
+      title: DDD
+      description: 도메인 주도 설계 관련 글
 
-- name: backend
-  title: 백엔드
-  description: 백엔드 개발 관련 글
+- name: language
+  title: Language
+  description: 개발 언어 관련 글
   subcategories:
-    - name: nodejs
-      title: Node.js
-      description: Node.js 관련 글
-    - name: database
-      title: 데이터베이스
-      description: 데이터베이스 관련 글
+    - name: java
+      title: Java
+      description: Java 관련 글
+    - name: kotlin
+      title: Kotlin
+      description: Kotlin 관련 글
 
-- name: devops
-  title: DevOps
-  description: DevOps 관련 글
+- name: framework
+  title: Framework
+  description: 프레임워크 관련 글
+  subcategories:
+    - name: spring-boot
+      title: Spring Boot
+      description: Spring Boot 관련 글
+    - name: spring-webflux
+      title: Spring WebFlux
+      description: Spring WebFlux 관련 글
 
-- name: algorithms
-  title: 알고리즘
-  description: 알고리즘 관련 글
+- name: database
+  title: Database
+  description: 데이터베이스 관련 글
+  subcategories:
+    - name: mysql
+      title: MySQL
+      description: MySQL 관련 글
+    - name: mongodb
+      title: MongoDB
+      description: MongoDB 관련 글
+    - name: redis
+      title: Redis
+      description: Redis 관련 글
+
+- name: network
+  title: Network
+  description: 네트워크 관련 글
+  subcategories:
+    - name: tcp-ip
+      title: TCP/IP
+      description: TCP/IP 관련 글
