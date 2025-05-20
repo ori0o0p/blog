@@ -72,3 +72,12 @@ const config = {
 } satisfies Config
 
 export default config
+
+// 반응형 breakpoint 개선안
+screens: {
+  xs: "320px",
+  sm: "640px",
+  md: "768px", 
+  lg: "1024px",
+  xl: "1280px"
+}

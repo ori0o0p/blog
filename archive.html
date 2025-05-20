@@ -5,18 +5,16 @@ permalink: /archive/
 ---
 
 <div class="archive">
-  <h1 class="page-heading">모든 글</h1>
-
   {% comment %} 1. 게시물을 연도별로 그룹화 (기존과 동일, 최신 연도순) {% endcomment %}
-  {% assign postsByYear = site.posts | group_by_exp:"post", "post.date | date: '%Y'" %}
+  {% assign all_posts = site.posts %}
+  {% assign postsByYear = all_posts | group_by_exp:"post", "post.date | date: '%Y'" %}
 
   {% for year in postsByYear %}
     <div class="archive-year">
       <h2>{{ year.name }}년</h2>
 
-      {% comment %} 2. 해당 연도의 게시물들을 다시 'YYYY-MM-DD' 형식의 날짜별로 그룹화 {% endcomment %}
-      {% comment %}    - group_by_exp의 결과는 정렬을 보장하지 않으므로, 'name' (날짜 문자열)으로 정렬 후 reverse하여 최신 날짜 그룹이 먼저 오도록 함 {% endcomment %}
-      {% assign postsByFullDateInYear = year.items | group_by_exp:"post", "post.date | date: '%Y-%m-%d'" | sort: 'name' | reverse %}
+      {% assign sorted_posts = year.items | sort: 'date' | reverse %}
+      {% assign postsByFullDateInYear = sorted_posts | group_by_exp:"post", "post.date | date: '%Y-%m-%d'" %}
 
       <ul class="archive-list-by-year">
         {% for date_group in postsByFullDateInYear %}
