@@ -1,33 +1,58 @@
 <!DOCTYPE html>
-<html lang="ko">
-<head>
+<html lang="ko"> <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Seungwon</title>
+  <title>ori0o0p</title>
+
+  <script>
+    (function() {
+      try {
+        var preferredTheme = localStorage.getItem('theme');
+        var systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var applyDarkThemeStyle = false;
+
+        if (preferredTheme === 'dark') {
+          applyDarkThemeStyle = true;
+        } else if (preferredTheme === 'light') {
+          applyDarkThemeStyle = false;
+        } else if (systemPrefersDark) {
+          applyDarkThemeStyle = true;
+        }
+
+        if (applyDarkThemeStyle) {
+          document.documentElement.classList.add('dark-theme');
+        } else {
+          document.documentElement.classList.remove('dark-theme');
+        }
+      } catch (e) {
+        console.warn("초기 테마 설정 중 오류 발생:", e);
+      }
+    })();
+  </script>
+
   <link rel="stylesheet" href="/blog/assets/css/main.css">
   <link rel="stylesheet" href="/blog/assets/css/syntax.css">
   <script src="/blog/assets/js/theme-toggle.js" defer></script>
   <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Page 2 of 2 for Seungwon | 개발 블로그</title>
+<title>Page 2 of 2 for ori0o0p | 개발 블로그</title>
 <meta name="generator" content="Jekyll v4.3.4" />
-<meta property="og:title" content="Seungwon" />
+<meta property="og:title" content="ori0o0p" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="개발 블로그" />
 <meta property="og:description" content="개발 블로그" />
 <link rel="canonical" href="http://localhost:4000/blog/page2/" />
 <meta property="og:url" content="http://localhost:4000/blog/page2/" />
-<meta property="og:site_name" content="Seungwon" />
+<meta property="og:site_name" content="ori0o0p" />
 <meta property="og:type" content="website" />
 <link rel="prev" href="http://localhost:4000/blog/" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Seungwon" />
+<meta property="twitter:title" content="ori0o0p" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"개발 블로그","headline":"Seungwon","url":"http://localhost:4000/blog/page2/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"개발 블로그","headline":"ori0o0p","url":"http://localhost:4000/blog/page2/"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
-<body class="light-theme">
-  <div class="site-container">
+<body> <div class="site-container">
     <header class="site-header">
   <div class="header-container">
     <div class="site-branding">
@@ -38,12 +63,12 @@
           <line x1="3" y1="18" x2="21" y2="18"></line>
         </svg>
       </button>
-      <a href="/blog/" class="site-title">Seungwon</a>
+      <a href="/blog/" class="site-title">ori0o0p</a>
     </div>
     
     <nav class="site-nav">
-      <a href="/blog/about/" class="nav-link">소개</a>
-      <a href="/blog/archive/" class="nav-link">아카이브</a>
+      <a href="/blog/about/" class="nav-link">about</a>
+      <a href="/blog/archive/" class="nav-link">archive</a>
       <button id="theme-toggle" class="theme-toggle" aria-label="테마 전환">
         <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="12" cy="12" r="5"></circle>
@@ -67,42 +92,23 @@
     
     <div class="main-container">
       <aside class="sidebar">
-        <style>
-  /* 클릭 가능한 요소임을 나타내기 위한 커서 스타일 */
-  .category-header .folder-icon,
-  .category-header .category-link,
-  .subcategory-header .folder-icon,
-  .subcategory-header .category-link {
-    cursor: pointer;
-  }
-  /* 아이콘과 텍스트 정렬을 위한 스타일 (필요에 따라 조정) */
-  .category-header, .subcategory-header {
-    display: flex;
-    align-items: center;
-  }
-  .toggle-btn {
-    flex-shrink: 0; /* 버튼 크기 고정 */
-  }
-  .folder-icon {
-    margin-left: 4px; /* 버튼과 폴더 아이콘 사이 간격 */
-    /* flex-shrink: 0; */
-  }
-  .post-item {
-    /* margin-left: 20px; 게시물 들여쓰기 */
-  }
-  .subcategory-item .subcategory-header {
-    /* padding-left: 20px; */ /* 서브카테고리 들여쓰기용 패딩 */
-  }
-  .subcategory-item .posts-container {
-    /* padding-left: 40px; */ /* 서브카테고리 내 게시물 들여쓰기용 패딩 */
-  }
-</style>
-
-<div class="category-tree">
+        <div class="category-tree">
   <h2 class="tree-title">Category</h2>
 
   <div class="tree-container">
     
+      
+      
+
+      
+      
+      
+
+      
+      
+      
+
+      
       <div class="category-item">
         <div class="category-header">
           <button class="toggle-btn" data-target="programming" aria-expanded="false" aria-controls="programming-container">
@@ -113,49 +119,22 @@
           <svg class="folder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em; height:1em;">
             <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
           </svg>
-          <span class="category-link">Programming</span>
+          <span class="category-link">Programming (2)</span>
         </div>
 
         <div class="subcategory-container" id="programming-container" style="display: none;">
           
             
-              <div class="subcategory-item" style="margin-left: 20px;"> <div class="subcategory-header">
-                  <button class="toggle-btn" data-target="oop" aria-expanded="false" aria-controls="oop-container">
-                    <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em; height:1em;">
-                      <polyline points="9 18 15 12 9 6"></polyline>
-                    </svg>
-                  </button>
-                  <svg class="folder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em; height:1em;">
-                    <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
-                  </svg>
-                  <span class="category-link">OOP</span>
-                </div>
-
-                <div class="posts-container" id="oop-container" style="display: none;">
-                  
-                  
-                </div>
-              </div>
+              
+              
             
-              <div class="subcategory-item" style="margin-left: 20px;"> <div class="subcategory-header">
-                  <button class="toggle-btn" data-target="fp" aria-expanded="false" aria-controls="fp-container">
-                    <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em; height:1em;">
-                      <polyline points="9 18 15 12 9 6"></polyline>
-                    </svg>
-                  </button>
-                  <svg class="folder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em; height:1em;">
-                    <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
-                  </svg>
-                  <span class="category-link">FP</span>
-                </div>
-
-                <div class="posts-container" id="fp-container" style="display: none;">
-                  
-                  
-                </div>
-              </div>
+              
+              
             
-              <div class="subcategory-item" style="margin-left: 20px;"> <div class="subcategory-header">
+              
+              
+              <div class="subcategory-item" style="margin-left: 20px;">
+                <div class="subcategory-header">
                   <button class="toggle-btn" data-target="reactive" aria-expanded="false" aria-controls="reactive-container">
                     <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em; height:1em;">
                       <polyline points="9 18 15 12 9 6"></polyline>
@@ -164,58 +143,62 @@
                   <svg class="folder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em; height:1em;">
                     <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
                   </svg>
-                  <span class="category-link">Reactive</span>
+                  <span class="category-link">Reactive (2)</span>
                 </div>
 
                 <div class="posts-container" id="reactive-container" style="display: none;">
                   
+                    <div class="post-item" style="margin-left: 20px;">
+                      <svg class="file-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em; height:1em; margin-right: 4px;">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
+                      </svg>
+                      <a href="/blog/programming/reactive-streams/" class="post-link">Reactive Streams</a>
+                    </div>
+                  
+                    <div class="post-item" style="margin-left: 20px;">
+                      <svg class="file-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em; height:1em; margin-right: 4px;">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
+                      </svg>
+                      <a href="/blog/programming/backpressure/" class="post-link">Backpressure</a>
+                    </div>
                   
                 </div>
               </div>
+              
             
-              <div class="subcategory-item" style="margin-left: 20px;"> <div class="subcategory-header">
-                  <button class="toggle-btn" data-target="tdd" aria-expanded="false" aria-controls="tdd-container">
-                    <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em; height:1em;">
-                      <polyline points="9 18 15 12 9 6"></polyline>
-                    </svg>
-                  </button>
-                  <svg class="folder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em; height:1em;">
-                    <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
-                  </svg>
-                  <span class="category-link">TDD</span>
-                </div>
-
-                <div class="posts-container" id="tdd-container" style="display: none;">
-                  
-                  
-                </div>
-              </div>
+              
+              
             
-              <div class="subcategory-item" style="margin-left: 20px;"> <div class="subcategory-header">
-                  <button class="toggle-btn" data-target="ddd" aria-expanded="false" aria-controls="ddd-container">
-                    <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em; height:1em;">
-                      <polyline points="9 18 15 12 9 6"></polyline>
-                    </svg>
-                  </button>
-                  <svg class="folder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em; height:1em;">
-                    <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
-                  </svg>
-                  <span class="category-link">DDD</span>
-                </div>
-
-                <div class="posts-container" id="ddd-container" style="display: none;">
-                  
-                  
-                </div>
-              </div>
+              
+              
             
           
 
-          
           
         </div>
       </div>
+       
     
+      
+      
+
+      
+      
+      
+
+      
+      
+      
+
+      
       <div class="category-item">
         <div class="category-header">
           <button class="toggle-btn" data-target="language" aria-expanded="false" aria-controls="language-container">
@@ -226,13 +209,16 @@
           <svg class="folder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em; height:1em;">
             <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
           </svg>
-          <span class="category-link">Language</span>
+          <span class="category-link">Language (6)</span>
         </div>
 
         <div class="subcategory-container" id="language-container" style="display: none;">
           
             
-              <div class="subcategory-item" style="margin-left: 20px;"> <div class="subcategory-header">
+              
+              
+              <div class="subcategory-item" style="margin-left: 20px;">
+                <div class="subcategory-header">
                   <button class="toggle-btn" data-target="java" aria-expanded="false" aria-controls="java-container">
                     <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em; height:1em;">
                       <polyline points="9 18 15 12 9 6"></polyline>
@@ -241,13 +227,13 @@
                   <svg class="folder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em; height:1em;">
                     <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
                   </svg>
-                  <span class="category-link">Java</span>
+                  <span class="category-link">Java (5)</span>
                 </div>
 
                 <div class="posts-container" id="java-container" style="display: none;">
                   
-                  
-                    <div class="post-item" style="margin-left: 20px;"> <svg class="file-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em; height:1em; margin-right: 4px;">
+                    <div class="post-item" style="margin-left: 20px;">
+                      <svg class="file-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em; height:1em; margin-right: 4px;">
                         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                         <polyline points="14 2 14 8 20 8"></polyline>
                         <line x1="16" y1="13" x2="8" y2="13"></line>
@@ -257,17 +243,19 @@
                       <a href="/blog/language/pecs/" class="post-link">PECS</a>
                     </div>
                   
-                    <div class="post-item" style="margin-left: 20px;"> <svg class="file-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em; height:1em; margin-right: 4px;">
+                    <div class="post-item" style="margin-left: 20px;">
+                      <svg class="file-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em; height:1em; margin-right: 4px;">
                         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                         <polyline points="14 2 14 8 20 8"></polyline>
                         <line x1="16" y1="13" x2="8" y2="13"></line>
                         <line x1="16" y1="17" x2="8" y2="17"></line>
                         <polyline points="10 9 9 9 8 9"></polyline>
                       </svg>
-                      <a href="/blog/language/java-throwing-exception/" class="post-link">Java Throwing Exception</a>
+                      <a href="/blog/language/java-throwing-exception/" class="post-link">Throwing Exception</a>
                     </div>
                   
-                    <div class="post-item" style="margin-left: 20px;"> <svg class="file-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em; height:1em; margin-right: 4px;">
+                    <div class="post-item" style="margin-left: 20px;">
+                      <svg class="file-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em; height:1em; margin-right: 4px;">
                         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                         <polyline points="14 2 14 8 20 8"></polyline>
                         <line x1="16" y1="13" x2="8" y2="13"></line>
@@ -277,7 +265,8 @@
                       <a href="/blog/language/scoped-values/" class="post-link">Scoped Values</a>
                     </div>
                   
-                    <div class="post-item" style="margin-left: 20px;"> <svg class="file-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em; height:1em; margin-right: 4px;">
+                    <div class="post-item" style="margin-left: 20px;">
+                      <svg class="file-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em; height:1em; margin-right: 4px;">
                         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                         <polyline points="14 2 14 8 20 8"></polyline>
                         <line x1="16" y1="13" x2="8" y2="13"></line>
@@ -287,7 +276,8 @@
                       <a href="/blog/language/reference-type/" class="post-link">Reference Type</a>
                     </div>
                   
-                    <div class="post-item" style="margin-left: 20px;"> <svg class="file-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em; height:1em; margin-right: 4px;">
+                    <div class="post-item" style="margin-left: 20px;">
+                      <svg class="file-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em; height:1em; margin-right: 4px;">
                         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                         <polyline points="14 2 14 8 20 8"></polyline>
                         <line x1="16" y1="13" x2="8" y2="13"></line>
@@ -299,8 +289,12 @@
                   
                 </div>
               </div>
+              
             
-              <div class="subcategory-item" style="margin-left: 20px;"> <div class="subcategory-header">
+              
+              
+              <div class="subcategory-item" style="margin-left: 20px;">
+                <div class="subcategory-header">
                   <button class="toggle-btn" data-target="kotlin" aria-expanded="false" aria-controls="kotlin-container">
                     <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em; height:1em;">
                       <polyline points="9 18 15 12 9 6"></polyline>
@@ -309,13 +303,13 @@
                   <svg class="folder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em; height:1em;">
                     <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
                   </svg>
-                  <span class="category-link">Kotlin</span>
+                  <span class="category-link">Kotlin (1)</span>
                 </div>
 
                 <div class="posts-container" id="kotlin-container" style="display: none;">
                   
-                  
-                    <div class="post-item" style="margin-left: 20px;"> <svg class="file-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em; height:1em; margin-right: 4px;">
+                    <div class="post-item" style="margin-left: 20px;">
+                      <svg class="file-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em; height:1em; margin-right: 4px;">
                         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                         <polyline points="14 2 14 8 20 8"></polyline>
                         <line x1="16" y1="13" x2="8" y2="13"></line>
@@ -327,251 +321,137 @@
                   
                 </div>
               </div>
+              
             
           
 
           
-          
         </div>
       </div>
+       
     
-      <div class="category-item">
-        <div class="category-header">
-          <button class="toggle-btn" data-target="framework" aria-expanded="false" aria-controls="framework-container">
-            <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em; height:1em;">
-              <polyline points="9 18 15 12 9 6"></polyline>
-            </svg>
-          </button>
-          <svg class="folder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em; height:1em;">
-            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
-          </svg>
-          <span class="category-link">Framework</span>
-        </div>
+      
+      
 
-        <div class="subcategory-container" id="framework-container" style="display: none;">
-          
-            
-              <div class="subcategory-item" style="margin-left: 20px;"> <div class="subcategory-header">
-                  <button class="toggle-btn" data-target="spring-boot" aria-expanded="false" aria-controls="spring-boot-container">
-                    <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em; height:1em;">
-                      <polyline points="9 18 15 12 9 6"></polyline>
-                    </svg>
-                  </button>
-                  <svg class="folder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em; height:1em;">
-                    <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
-                  </svg>
-                  <span class="category-link">Spring Boot</span>
-                </div>
+      
+      
+      
 
-                <div class="posts-container" id="spring-boot-container" style="display: none;">
-                  
-                  
-                </div>
-              </div>
-            
-              <div class="subcategory-item" style="margin-left: 20px;"> <div class="subcategory-header">
-                  <button class="toggle-btn" data-target="spring-webflux" aria-expanded="false" aria-controls="spring-webflux-container">
-                    <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em; height:1em;">
-                      <polyline points="9 18 15 12 9 6"></polyline>
-                    </svg>
-                  </button>
-                  <svg class="folder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em; height:1em;">
-                    <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
-                  </svg>
-                  <span class="category-link">Spring WebFlux</span>
-                </div>
+      
+      
+      
 
-                <div class="posts-container" id="spring-webflux-container" style="display: none;">
-                  
-                  
-                </div>
-              </div>
-            
-          
-
-          
-          
-        </div>
-      </div>
+       
     
-      <div class="category-item">
-        <div class="category-header">
-          <button class="toggle-btn" data-target="database" aria-expanded="false" aria-controls="database-container">
-            <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em; height:1em;">
-              <polyline points="9 18 15 12 9 6"></polyline>
-            </svg>
-          </button>
-          <svg class="folder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em; height:1em;">
-            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
-          </svg>
-          <span class="category-link">Database</span>
-        </div>
+      
+      
 
-        <div class="subcategory-container" id="database-container" style="display: none;">
-          
-            
-              <div class="subcategory-item" style="margin-left: 20px;"> <div class="subcategory-header">
-                  <button class="toggle-btn" data-target="mysql" aria-expanded="false" aria-controls="mysql-container">
-                    <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em; height:1em;">
-                      <polyline points="9 18 15 12 9 6"></polyline>
-                    </svg>
-                  </button>
-                  <svg class="folder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em; height:1em;">
-                    <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
-                  </svg>
-                  <span class="category-link">MySQL</span>
-                </div>
+      
+      
+      
 
-                <div class="posts-container" id="mysql-container" style="display: none;">
-                  
-                  
-                </div>
-              </div>
-            
-              <div class="subcategory-item" style="margin-left: 20px;"> <div class="subcategory-header">
-                  <button class="toggle-btn" data-target="mongodb" aria-expanded="false" aria-controls="mongodb-container">
-                    <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em; height:1em;">
-                      <polyline points="9 18 15 12 9 6"></polyline>
-                    </svg>
-                  </button>
-                  <svg class="folder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em; height:1em;">
-                    <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
-                  </svg>
-                  <span class="category-link">MongoDB</span>
-                </div>
+      
+      
+      
 
-                <div class="posts-container" id="mongodb-container" style="display: none;">
-                  
-                  
-                </div>
-              </div>
-            
-              <div class="subcategory-item" style="margin-left: 20px;"> <div class="subcategory-header">
-                  <button class="toggle-btn" data-target="redis" aria-expanded="false" aria-controls="redis-container">
-                    <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em; height:1em;">
-                      <polyline points="9 18 15 12 9 6"></polyline>
-                    </svg>
-                  </button>
-                  <svg class="folder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em; height:1em;">
-                    <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
-                  </svg>
-                  <span class="category-link">Redis</span>
-                </div>
-
-                <div class="posts-container" id="redis-container" style="display: none;">
-                  
-                  
-                </div>
-              </div>
-            
-          
-
-          
-          
-        </div>
-      </div>
+       
     
-      <div class="category-item">
-        <div class="category-header">
-          <button class="toggle-btn" data-target="network" aria-expanded="false" aria-controls="network-container">
-            <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em; height:1em;">
-              <polyline points="9 18 15 12 9 6"></polyline>
-            </svg>
-          </button>
-          <svg class="folder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em; height:1em;">
-            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
-          </svg>
-          <span class="category-link">Network</span>
-        </div>
+      
+      
 
-        <div class="subcategory-container" id="network-container" style="display: none;">
-          
-            
-              <div class="subcategory-item" style="margin-left: 20px;"> <div class="subcategory-header">
-                  <button class="toggle-btn" data-target="tcp-ip" aria-expanded="false" aria-controls="tcp-ip-container">
-                    <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em; height:1em;">
-                      <polyline points="9 18 15 12 9 6"></polyline>
-                    </svg>
-                  </button>
-                  <svg class="folder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:1em; height:1em;">
-                    <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
-                  </svg>
-                  <span class="category-link">TCP/IP</span>
-                </div>
+      
+      
+      
 
-                <div class="posts-container" id="tcp-ip-container" style="display: none;">
-                  
-                  
-                </div>
-              </div>
-            
-          
+      
+      
+      
 
-          
-          
-        </div>
-      </div>
+       
     
   </div>
 </div>
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    // 토글 기능을 수행하는 함수
-    function toggleContent(buttonElement) {
-      const targetId = buttonElement.dataset.target + '-container';
-      const targetContainer = document.getElementById(targetId);
-      const icon = buttonElement.querySelector('.chevron-icon');
-      const isExpanded = buttonElement.getAttribute('aria-expanded') === 'true';
+  // 열린 상태의 카테고리 ID를 저장할 객체
+  const openStates = JSON.parse(localStorage.getItem('categoryTreeState')) || {};
 
-      if (targetContainer) {
-        if (isExpanded) {
-          targetContainer.style.display = 'none';
-          buttonElement.setAttribute('aria-expanded', 'false');
-          if (icon) icon.style.transform = 'rotate(0deg)';
-        } else {
-          targetContainer.style.display = 'block'; // 또는 'flex' 등
-          buttonElement.setAttribute('aria-expanded', 'true');
-          if (icon) icon.style.transform = 'rotate(90deg)';
+  function saveState() {
+    localStorage.setItem('categoryTreeState', JSON.stringify(openStates));
+  }
+
+  function toggleContent(buttonElement, skipSaving = false) {
+    const targetId = buttonElement.dataset.target;
+    const targetContainerId = targetId + '-container';
+    const targetContainer = document.getElementById(targetContainerId);
+    const icon = buttonElement.querySelector('.chevron-icon');
+    const isExpanded = buttonElement.getAttribute('aria-expanded') === 'true';
+
+    if (targetContainer) {
+      if (isExpanded) {
+        targetContainer.style.display = 'none';
+        buttonElement.setAttribute('aria-expanded', 'false');
+        if (icon) icon.style.transform = 'rotate(0deg)';
+        
+        // 상태 업데이트
+        if (!skipSaving) {
+          delete openStates[targetId];
+          saveState();
+        }
+      } else {
+        targetContainer.style.display = 'block';
+        buttonElement.setAttribute('aria-expanded', 'true');
+        if (icon) icon.style.transform = 'rotate(90deg)';
+        
+        // 상태 업데이트
+        if (!skipSaving) {
+          openStates[targetId] = true;
+          saveState();
         }
       }
     }
+  }
 
-    // 토글 버튼에 이벤트 리스너 추가
-    const toggleButtons = document.querySelectorAll('.toggle-btn');
-    toggleButtons.forEach(button => {
-      button.addEventListener('click', function () {
-        toggleContent(this);
-      });
+  // 모든 토글 버튼에 이벤트 핸들러 추가
+  const toggleButtons = document.querySelectorAll('.toggle-btn');
+  toggleButtons.forEach(button => {
+    button.addEventListener('click', function () {
+      toggleContent(this);
     });
-
-    // 폴더 아이콘 및 카테고리/서브카테고리 이름에 클릭 이벤트 리스너 추가
-    const clickableHeaders = document.querySelectorAll('.category-header, .subcategory-header');
-    clickableHeaders.forEach(header => {
-      const folderIcon = header.querySelector('.folder-icon');
-      const categoryLink = header.querySelector('.category-link'); // span 태그
-      const associatedToggleButton = header.querySelector('.toggle-btn');
-
-      if (associatedToggleButton) { // 연관된 토글 버튼이 있을 경우에만
-        if (folderIcon) {
-          folderIcon.addEventListener('click', function() {
-            toggleContent(associatedToggleButton);
-          });
-        }
-        if (categoryLink) {
-          categoryLink.addEventListener('click', function() {
-            toggleContent(associatedToggleButton);
-          });
-        }
-      }
-    });
-
-    // (선택 사항) 초기 상태에서 특정 카테고리 열기 (예: 첫 번째 주 카테고리)
-    // const firstMainCategoryToggle = document.querySelector('.category-item > .category-header .toggle-btn');
-    // if (firstMainCategoryToggle) {
-    //    toggleContent(firstMainCategoryToggle); // 페이지 로드 시 열기
-    // }
   });
+
+  // 카테고리와 서브카테고리 헤더 클릭 이벤트 
+  const clickableHeaders = document.querySelectorAll('.category-header, .subcategory-header');
+  clickableHeaders.forEach(header => {
+    const folderIcon = header.querySelector('.folder-icon');
+    const categoryLink = header.querySelector('.category-link');
+    const associatedToggleButton = header.querySelector('.toggle-btn');
+
+    if (associatedToggleButton) {
+      if (folderIcon) {
+        folderIcon.addEventListener('click', function() {
+          toggleContent(associatedToggleButton);
+        });
+      }
+      if (categoryLink) {
+        categoryLink.addEventListener('click', function() {
+          toggleContent(associatedToggleButton);
+        });
+      }
+    }
+  });
+
+  // 이전 상태 복원
+  for (const [targetId, isOpen] of Object.entries(openStates)) {
+    if (isOpen) {
+      const button = document.querySelector(`.toggle-btn[data-target="${targetId}"]`);
+      if (button) {
+        toggleContent(button, true); // 저장 스킵하면서 상태만 변경
+      }
+    }
+  }
+});
 </script>
       </aside>
       
@@ -604,7 +484,7 @@
     
       <div class="post-card">
         <h2 class="post-title">
-          <a href="/blog/language/java-throwing-exception/">Java Throwing Exception</a>
+          <a href="/blog/language/java-throwing-exception/">Throwing Exception</a>
         </h2>
         <div class="post-meta">
           <time datetime="2024-06-17T00:00:00+09:00">2024년 06월 17일</time>
@@ -629,7 +509,7 @@
           <a href="/blog/language/kotlin-coroutines/">Coroutines</a>
         </h2>
         <div class="post-meta">
-          <time datetime="2024-05-26T00:00:00+09:00">2024년 05월 26일</time>
+          <time datetime="2024-05-31T00:00:00+09:00">2024년 05월 31일</time>
           
             <span class="post-categories">
               
@@ -643,6 +523,48 @@
 
         </div>
         <a href="/blog/language/kotlin-coroutines/" class="read-more">더 읽기</a>
+      </div>
+    
+      <div class="post-card">
+        <h2 class="post-title">
+          <a href="/blog/programming/reactive-streams/">Reactive Streams</a>
+        </h2>
+        <div class="post-meta">
+          <time datetime="2024-05-27T00:00:00+09:00">2024년 05월 27일</time>
+          
+            <span class="post-categories">
+              
+                <a href="/blog/category/programming/" class="tag">programming</a>
+              
+            </span>
+          
+        </div>
+        <div class="post-excerpt">
+          리액티브 프로그래밍을 표준화한 명세이다.
+
+        </div>
+        <a href="/blog/programming/reactive-streams/" class="read-more">더 읽기</a>
+      </div>
+    
+      <div class="post-card">
+        <h2 class="post-title">
+          <a href="/blog/programming/backpressure/">Backpressure</a>
+        </h2>
+        <div class="post-meta">
+          <time datetime="2024-05-27T00:00:00+09:00">2024년 05월 27일</time>
+          
+            <span class="post-categories">
+              
+                <a href="/blog/category/programming/" class="tag">programming</a>
+              
+            </span>
+          
+        </div>
+        <div class="post-excerpt">
+          데이터 공급자(퍼블리셔)와 구독자 사이의 데이터 흐름을 조절하는 메커니즘
+
+        </div>
+        <a href="/blog/programming/backpressure/" class="read-more">더 읽기</a>
       </div>
     
       <div class="post-card">
@@ -666,49 +588,6 @@
         <a href="/blog/language/scoped-values/" class="read-more">더 읽기</a>
       </div>
     
-      <div class="post-card">
-        <h2 class="post-title">
-          <a href="/blog/language/reference-type/">Reference Type</a>
-        </h2>
-        <div class="post-meta">
-          <time datetime="2024-05-26T00:00:00+09:00">2024년 05월 26일</time>
-          
-            <span class="post-categories">
-              
-                <a href="/blog/category/language/" class="tag">language</a>
-              
-            </span>
-          
-        </div>
-        <div class="post-excerpt">
-          프로그램이 객체 생명 주기를 효과적으로 관리할 수 있는 객체 참조 유형 4가지를 정리합니다
-
-        </div>
-        <a href="/blog/language/reference-type/" class="read-more">더 읽기</a>
-      </div>
-    
-      <div class="post-card">
-        <h2 class="post-title">
-          <a href="/blog/language/forkjoinpool/">ForkJoinPool</a>
-        </h2>
-        <div class="post-meta">
-          <time datetime="2024-04-30T00:00:00+09:00">2024년 04월 30일</time>
-          
-            <span class="post-categories">
-              
-                <a href="/blog/category/language/" class="tag">language</a>
-              
-            </span>
-          
-        </div>
-        <div class="post-excerpt">
-          ForkJoinPool이란?
-Fork/Join 프레임워크 기반으로 작업을 병렬로 실행하고 작업을 더 작은 하위 작업으로 나누고, 최종 결과로 결합하는 ForkJoinTask를 위한 스레드 풀이다. (ExecutorService 구현)
-
-        </div>
-        <a href="/blog/language/forkjoinpool/" class="read-more">더 읽기</a>
-      </div>
-    
   </div>
   
   <div class="view-all">
@@ -722,7 +601,7 @@ Fork/Join 프레임워크 기반으로 작업을 병렬로 실행하고 작업�
     <footer class="site-footer">
   <div class="footer-container">
     <div class="footer-content">
-      <p>&copy; 2025 Seungwon. All rights reserved.</p>
+      <p>&copy; 2025 ori0o0p. All rights reserved.</p>
     </div>
     <div class="footer-links">
       
@@ -745,7 +624,7 @@ Fork/Join 프레임워크 기반으로 작업을 병렬로 실행하고 작업�
 
   </div>
 
-  <script src="/blog/assets/js/category-tree.js"></script>
-  <script src="/blog/assets/js/mobile-menu.js"></script>
+  <script src="/blog/assets/js/category-tree.js" defer></script>
+  <script src="/blog/assets/js/mobile-menu.js" defer></script>
 </body>
 </html>

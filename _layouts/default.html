@@ -1,16 +1,41 @@
 <!DOCTYPE html>
-<html lang="ko">
-<head>
+<html lang="ko"> <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+
+  <script>
+    (function() {
+      try {
+        var preferredTheme = localStorage.getItem('theme');
+        var systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var applyDarkThemeStyle = false;
+
+        if (preferredTheme === 'dark') {
+          applyDarkThemeStyle = true;
+        } else if (preferredTheme === 'light') {
+          applyDarkThemeStyle = false;
+        } else if (systemPrefersDark) {
+          applyDarkThemeStyle = true;
+        }
+
+        if (applyDarkThemeStyle) {
+          document.documentElement.classList.add('dark-theme');
+        } else {
+          document.documentElement.classList.remove('dark-theme');
+        }
+      } catch (e) {
+        console.warn("초기 테마 설정 중 오류 발생:", e);
+      }
+    })();
+  </script>
+
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/syntax.css' | relative_url }}">
   <script src="{{ '/assets/js/theme-toggle.js' | relative_url }}" defer></script>
   {% seo %}
 </head>
-<body class="light-theme">
-  <div class="site-container">
+<body> <div class="site-container">
     {% include header.html %}
     
     <div class="main-container">
@@ -26,7 +51,7 @@
     {% include footer.html %}
   </div>
 
-  <script src="{{ '/assets/js/category-tree.js' | relative_url }}"></script>
-  <script src="{{ '/assets/js/mobile-menu.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/category-tree.js' | relative_url }}" defer></script>
+  <script src="{{ '/assets/js/mobile-menu.js' | relative_url }}" defer></script>
 </body>
 </html>

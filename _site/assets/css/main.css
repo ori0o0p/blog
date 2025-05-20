@@ -1,3 +1,43 @@
+/* main.css 파일의 다른 내용은 그대로 유지합니다. */
+/* 아래는 Theme Toggle 아이콘 관련 CSS 수정 제안입니다. */
+/* 기존 .light-theme .moon-icon 등의 규칙 대신 아래 규칙을 사용하세요. */
+
+/* Theme Toggle */
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color); /* 테마 토글 아이콘 색상 */
+}
+
+.sun-icon,
+.moon-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* 라이트 모드일 때 (html 태그에 dark-theme 클래스가 없을 때) */
+html:not(.dark-theme) .moon-icon {
+  display: block;
+}
+
+html:not(.dark-theme) .sun-icon {
+  display: none;
+}
+
+/* 다크 모드일 때 (html 태그에 dark-theme 클래스가 있을 때) */
+html.dark-theme .sun-icon {
+  display: block;
+}
+
+html.dark-theme .moon-icon {
+  display: none;
+}
+
 /* Base */
 :root {
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
@@ -21,7 +61,7 @@
   --shadow-color: rgba(0, 0, 0, 0.08); /* 연한 검정 그림자 */
 }
 
-.dark-theme {
+.dark-theme { /* html.dark-theme 으로 적용될 클래스 */
   --bg-color: #000000; /* 검정 배경 */
   --text-color: #e0e0e0; /* 매우 밝은 회색 텍스트 (거의 흰색) */
   --heading-color: #ffffff; /* 순수 흰색 제목 */
@@ -171,10 +211,14 @@ table th {
   min-height: 100vh;
 }
 
+/* .main-container 클래스 정의는 assets/css/main.css 하단에 이미 존재하므로 중복 회피 */
+/* (만약 이 파일이 유일한 CSS 파일이라면 아래 주석 해제) */
+/*
 .main-container {
   display: flex;
   flex: 1;
 }
+*/
 
 .content {
   flex: 1;
@@ -221,14 +265,18 @@ table th {
 }
 
 /* Sidebar */
+/* .sidebar 클래스 정의는 assets/css/main.css 하단에 이미 존재하므로 중복 회피 */
+/* (만약 이 파일이 유일한 CSS 파일이라면 아래 주석 해제) */
+/*
 .sidebar {
   width: 280px;
   padding: 2rem 1rem;
   border-right: 1px solid var(--border-color);
-  background-color: var(--bg-color); /* 사이드바 배경도 기본 배경색 사용 */
+  background-color: var(--bg-color); 
   overflow-y: auto;
   flex-shrink: 0;
 }
+*/
 
 /* Category Tree */
 .category-tree {
@@ -407,39 +455,6 @@ table th {
   color: var(--text-color); /* 모바일 메뉴 아이콘 색상 */
 }
 
-/* Theme Toggle */
-.theme-toggle {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-color); /* 테마 토글 아이콘 색상 */
-}
-
-.sun-icon,
-.moon-icon {
-  width: 20px;
-  height: 20px;
-}
-
-.light-theme .moon-icon {
-  display: block;
-}
-
-.light-theme .sun-icon {
-  display: none;
-}
-
-.dark-theme .sun-icon {
-  display: block;
-}
-
-.dark-theme .moon-icon {
-  display: none;
-}
 
 /* Posts List */
 .posts-list {
@@ -529,6 +544,9 @@ table th {
     border-right: none;
     border-bottom: 1px solid var(--border-color);
     padding: 1rem;
+    position: static; /* 모바일에서는 sticky 해제 */
+    max-height: none; /* 모바일에서는 max-height 해제 */
+    overflow-y: visible; /* 모바일에서는 overflow-y 해제 */
   }
 
   .content {
@@ -556,34 +574,38 @@ table th {
   }
 }
 
-/* assets/css/main.css */
+/* 아래 내용은 이미 파일 하단에 존재하던 내용과 중복될 수 있습니다.
+   만약 이 파일이 유일한 CSS 파일이 아니라면,
+   프로젝트 전체의 CSS 구조를 확인하고 중복되는 부분을 정리해야 합니다.
+   여기서는 기존에 제공해주신 main.css 하단 내용을 그대로 두겠습니다.
+*/
 
 /* 기본 레이아웃을 위한 Flexbox 설정 (default.html 구조 기준) */
-.main-container {
+.main-container { /* 이 클래스 정의는 파일 상단 Layout 섹션과 중복될 수 있으나, align-items, gap은 여기서만 정의됨 */
   display: flex;
   align-items: flex-start; /* 사이드바와 컨텐츠 상단 정렬 */
   gap: 20px; /* 사이드바와 컨텐츠 사이 간격 (선택 사항) */
+  flex: 1; /* .site-container 내부에서 footer를 제외한 영역을 채우도록 */
 }
 
-.sidebar {
-  /* 사이드바 너비 설정 (원하는 값으로 조절) */
-  width: 250px;
-  flex-shrink: 0; /* 컨텐츠가 늘어날 때 사이드바가 줄어들지 않도록 함 */
-
-  /* === Sticky Sidebar 구현 === */
-  position: -webkit-sticky; /* Safari 브라우저 호환성 */
+.sidebar { /* 이 클래스 정의는 파일 상단 Sidebar 섹션과 중복될 수 있으나, sticky 관련 내용은 여기서만 정의됨 */
+  width: 280px; /* 상단 Sidebar 섹션과 동일하게 유지 또는 한 곳에서만 정의 */
+  flex-shrink: 0;
+  position: -webkit-sticky;
   position: sticky;
-  top: 72px; /* 화면 상단에서 얼마나 떨어져서 고정될지 결정 (헤더 높이 등을 고려) */
-
-  /* 사이드바 내용이 화면보다 길 경우 자체 스크롤 생성 */
-  /* (top 값 * 2) 또는 (top 값 + 하단 여백) 만큼을 100vh에서 빼줍니다. */
-  /* 헤더가 fixed라면 헤더 높이도 고려해야 합니다. */
-  max-height: calc(100vh - 40px); /* 예: top이 20px이면 위아래 20px씩 여유 */
-  overflow-y: auto; /* 내용이 넘칠 경우 스크롤바 표시 */
+  top: 72px; /* 헤더 높이 고려 (site-header가 sticky이므로) */
+  max-height: calc(100vh - 72px - 20px); /* top값과 추가 여유공간 고려 */
+  overflow-y: auto;
+  /* 상단 .sidebar 정의에서 padding, border-right, background-color 등 가져오거나 통합 필요 */
+  padding: 2rem 1rem; /* 상단 정의와 동일하게 */
+  border-right: 1px solid var(--border-color); /* 상단 정의와 동일하게 */
+  background-color: var(--bg-color); /* 상단 정의와 동일하게 */
 }
 
-.content {
-  flex-grow: 1; /* 남은 공간을 모두 차지하도록 설정 */
-  /* flex 아이템 내부 컨텐츠로 인해 레이아웃이 깨지는 것을 방지 (선택 사항) */
-  min-width: 0;
+.content { /* 이 클래스 정의는 파일 상단 Layout 섹션과 중복될 수 있으나, flex-grow, min-width는 여기서만 정의됨 */
+  flex-grow: 1;
+  min-width: 0; /* flex 아이템 내부 컨텐츠로 인한 레이아웃 깨짐 방지 */
+  /* 상단 .content 정의에서 padding, max-width 등 가져오거나 통합 필요 */
+  padding: 2rem; /* 상단 정의와 동일하게 */
+  max-width: 100%; /* 상단 정의와 동일하게 */
 }

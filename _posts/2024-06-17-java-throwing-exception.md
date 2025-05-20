@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Java Throwing Exception"
+title: "Throwing Exception"
 date: 2024-06-17
 categories: [language]
 subcategory: java

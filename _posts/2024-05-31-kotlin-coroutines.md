@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Coroutines"
-date: 2024-05-26
+date: 2024-05-31
 categories: [language]
 subcategory: kotlin
 tags: [Kotlin, Coroutines]
@@ -11,11 +11,11 @@ tags: [Kotlin, Coroutines]
 
 ## 왜 코루틴을 사용해야 하는가?
 
-코틀린에서 비동기 프로그래밍을 하기 위해?(맞음)
+코틀린에서 비동기 프로그래밍을 하기 위해?(맞다)
 
-비동기식 코드를 동기 방식으로 작성하기 위해(맞음) ⇒ 콜백지옥이 이제 없음(행복?)
+비동기식 코드를 동기 방식으로 작성하기 위해(맞다) ⇒ 콜백지옥이 이제 없음(행복?)
 
-- 코틀린 코루틴에선 콜백 스타일의 코드가 아닌 명령형 프로그래밍 스타일임.
+- 코틀린 코루틴에선 콜백 스타일의 코드가 아닌 명령형 프로그래밍 스타일이다.
 
 코루틴도 가상 스레드 처럼 OS 스레드에 직접 매핑되지 않고 *continuations*이라는 객체를 사용해 ULT에서 매핑이 이루어진다. (경량 스레드)
 
@@ -45,12 +45,12 @@ suspend fun minjuIsComing() {
 
 minjuIsComing 코루틴이 실행될 때 delay 기능에서 일시 중지하고, 다시 재개를 한다.
 
-해당 메커니즘을 자세히 소개 해주겟다
+해당 메커니즘을 자세히 소개하겠다.
 
 suspending 된 함수는 전체 문맥(context)가 `Continuation<T>`에 저장된다. 
 Continuation 객체에는 함수의 변수 및 매개변수의 모든 상태, 실행이 중단된 지점(**label**)이 저장이 된다. 
 
-코틀린 컴파일러는 중지된 함수를 아래와 같이 재구성? 한다.
+코틀린 컴파일러는 중지된 함수를 아래와 같이 재구성한다.
 
 ```kotlin
 suspend fun minjuIsComing()
