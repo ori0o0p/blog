@@ -50,6 +50,29 @@
 {"@context":"https://schema.org","@type":"WebPage","description":"개발 블로그","headline":"검색","url":"http://localhost:4000/blog/search/"}</script>
 <!-- End Jekyll SEO tag -->
 
+  <style>
+    * {
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+      });
+      document.addEventListener('dragstart', function(e) {
+        e.preventDefault();
+      });
+      document.addEventListener('keydown', function(e) {
+        if ((e.ctrlKey || e.metaKey) && e.keyCode === 67) {
+          e.preventDefault();
+        }
+      });
+    });
+  </script>
 </head>
 <body> <div class="site-container">
     <header class="site-header">

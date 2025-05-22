@@ -24,9 +24,7 @@ tags: [Reactive Streams]
     
 - subscriber
     
-    이벤트 스트림 수신자, 
-    
-    구독은 다음과 같은 2단계 과정이다.
+    이벤트 스트림 수신자, 구독은 다음과 같은 2단계 과정이다.
     
     1. Publisher.subscribe(구독자) 호출
     2. Subscription.request(long) 호출

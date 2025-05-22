@@ -34,6 +34,29 @@
   <link rel="stylesheet" href="{{ '/assets/css/syntax.css' | relative_url }}">
   <script src="{{ '/assets/js/theme-toggle.js' | relative_url }}" defer></script>
   {% seo %}
+  <style>
+    * {
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+      });
+      document.addEventListener('dragstart', function(e) {
+        e.preventDefault();
+      });
+      document.addEventListener('keydown', function(e) {
+        if ((e.ctrlKey || e.metaKey) && e.keyCode === 67) {
+          e.preventDefault();
+        }
+      });
+    });
+  </script>
 </head>
 <body> <div class="site-container">
     {% include header.html %}

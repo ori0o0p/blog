@@ -1,5 +1,4 @@
 import { useRouter } from 'next/router';
-import { CategoryTreeSkeleton } from '@/components/LoadingSkeleton';
 import { Inter } from 'next/font/google';
 
 const inter = Inter({
@@ -23,15 +22,13 @@ const Layout = React.memo(({ children }) => {
     };
     
     router.events.on('routeChangeStart', handleStart);
-    router.events.on('routeChangeComplete', handleComplete);
     router.events.on('beforePopState', handleComplete);
-    
+        
     return () => {
       clearTimeout(timeoutRef.current);
       router.events.off('routeChangeStart', handleStart);
       router.events.off('routeChangeComplete', handleComplete);
-      router.events.off('beforePopState', handleComplete);
-    };
+          };
   }, [router]);
 
   return (

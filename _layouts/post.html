@@ -37,10 +37,10 @@ layout: default
         </svg>
         <div class="tags-list">
           {% for category in page.categories %}
-            <a href="{{ site.baseurl }}/category/{{ category | slugify }}" class="tag">{{ category }}</a>
+            <a class="tag">{{ category }}</a>
           {% endfor %}
           {% for tag in page.tags %}
-            <a href="{{ site.baseurl }}/tags/{{ tag | slugify }}" class="tag">{{ tag }}</a>
+            <a class="tag">{{ tag }}</a>
           {% endfor %}
         </div>
       </div>

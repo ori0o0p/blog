@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/blog/" rel="alternate" type="text/html" /><updated>2025-05-20T16:14:29+09:00</updated><id>http://localhost:4000/blog/feed.xml</id><title type="html">ori0o0p</title><subtitle>개발 블로그</subtitle><entry><title type="html">PECS</title><link href="http://localhost:4000/blog/language/pecs/" rel="alternate" type="text/html" title="PECS" /><published>2024-07-28T00:00:00+09:00</published><updated>2024-07-28T00:00:00+09:00</updated><id>http://localhost:4000/blog/language/pecs</id><content type="html" xml:base="http://localhost:4000/blog/language/pecs/"><![CDATA[<p><strong>Producer Extends Consumer Super</strong></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/blog/" rel="alternate" type="text/html" /><updated>2025-05-20T20:03:41+09:00</updated><id>http://localhost:4000/blog/feed.xml</id><title type="html">ori0o0p</title><subtitle>개발 블로그</subtitle><entry><title type="html">PECS</title><link href="http://localhost:4000/blog/language/pecs/" rel="alternate" type="text/html" title="PECS" /><published>2024-07-28T00:00:00+09:00</published><updated>2024-07-28T00:00:00+09:00</updated><id>http://localhost:4000/blog/language/pecs</id><content type="html" xml:base="http://localhost:4000/blog/language/pecs/"><![CDATA[<p><strong>Producer Extends Consumer Super</strong></p>
 
 <h2 id="pecs-원칙">PECS 원칙</h2>
 <ul>
@@ -566,9 +566,7 @@ Continuation 객체에는 함수의 변수 및 매개변수의 모든 상태, �
   <li>
     <p>subscriber</p>
 
-    <p>이벤트 스트림 수신자,</p>
-
-    <p>구독은 다음과 같은 2단계 과정이다.</p>
+    <p>이벤트 스트림 수신자, 구독은 다음과 같은 2단계 과정이다.</p>
 
     <ol>
       <li>Publisher.subscribe(구독자) 호출</li>

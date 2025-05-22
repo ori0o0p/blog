@@ -51,6 +51,29 @@
 {"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-04-30T00:00:00+09:00","datePublished":"2024-04-30T00:00:00+09:00","description":"ForkJoinPool이란? Fork/Join 프레임워크 기반으로 작업을 병렬로 실행하고 작업을 더 작은 하위 작업으로 나누고, 최종 결과로 결합하는 ForkJoinTask를 위한 스레드 풀이다. (ExecutorService 구현)","headline":"ForkJoinPool","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/blog/language/forkjoinpool/"},"url":"http://localhost:4000/blog/language/forkjoinpool/"}</script>
 <!-- End Jekyll SEO tag -->
 
+  <style>
+    * {
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+      });
+      document.addEventListener('dragstart', function(e) {
+        e.preventDefault();
+      });
+      document.addEventListener('keydown', function(e) {
+        if ((e.ctrlKey || e.metaKey) && e.keyCode === 67) {
+          e.preventDefault();
+        }
+      });
+    });
+  </script>
 </head>
 <body> <div class="site-container">
     <header class="site-header">
@@ -489,14 +512,14 @@
         </svg>
         <div class="tags-list">
           
-            <a href="/blog/category/language" class="tag">language</a>
+            <a class="tag">language</a>
           
           
-            <a href="/blog/tags/java" class="tag">Java</a>
+            <a class="tag">Java</a>
           
-            <a href="/blog/tags/forkjoinpool" class="tag">ForkJoinPool</a>
+            <a class="tag">ForkJoinPool</a>
           
-            <a href="/blog/tags/parallelism" class="tag">Parallelism</a>
+            <a class="tag">Parallelism</a>
           
         </div>
       </div>

@@ -51,6 +51,29 @@
 {"@context":"https://schema.org","@type":"WebSite","description":"개발 블로그","headline":"ori0o0p","name":"ori0o0p","url":"http://localhost:4000/blog/"}</script>
 <!-- End Jekyll SEO tag -->
 
+  <style>
+    * {
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+      });
+      document.addEventListener('dragstart', function(e) {
+        e.preventDefault();
+      });
+      document.addEventListener('keydown', function(e) {
+        if ((e.ctrlKey || e.metaKey) && e.keyCode === 67) {
+          e.preventDefault();
+        }
+      });
+    });
+  </script>
 </head>
 <body> <div class="site-container">
     <header class="site-header">
@@ -457,144 +480,179 @@
       
       <main class="content">
         <div class="home">
-  <h1 class="page-heading">최근 글</h1>
-  
-  <div class="posts-list">
-    
-      <div class="post-card">
-        <h2 class="post-title">
-          <a href="/blog/language/pecs/">PECS</a>
-        </h2>
-        <div class="post-meta">
-          <time datetime="2024-07-28T00:00:00+09:00">2024년 07월 28일</time>
-          
-            <span class="post-categories">
-              
-                <a href="/blog/category/language/" class="tag">language</a>
-              
-            </span>
-          
-        </div>
-        <div class="post-excerpt">
-          Producer Extends Consumer Super
+  <h1 class="page-heading">글 달력</h1>
 
-        </div>
-        <a href="/blog/language/pecs/" class="read-more">더 읽기</a>
-      </div>
+  <div class="github-calendar">
     
-      <div class="post-card">
-        <h2 class="post-title">
-          <a href="/blog/language/java-throwing-exception/">Throwing Exception</a>
-        </h2>
-        <div class="post-meta">
-          <time datetime="2024-06-17T00:00:00+09:00">2024년 06월 17일</time>
-          
-            <span class="post-categories">
-              
-                <a href="/blog/category/language/" class="tag">language</a>
-              
-            </span>
-          
-        </div>
-        <div class="post-excerpt">
-          자바를 넘어서 모든 SW의 예외 처리는 매우 중요하다. 
-이를 통해 개발자는 예상치 못한 오류를 적절하게 해결할 수 있어 해당 SW의 품질을 보장할 수 있는 그런 작업이다.
 
-        </div>
-        <a href="/blog/language/java-throwing-exception/" class="read-more">더 읽기</a>
-      </div>
-    
-      <div class="post-card">
-        <h2 class="post-title">
-          <a href="/blog/language/kotlin-coroutines/">Coroutines</a>
-        </h2>
-        <div class="post-meta">
-          <time datetime="2024-05-31T00:00:00+09:00">2024년 05월 31일</time>
-          
-            <span class="post-categories">
-              
-                <a href="/blog/category/language/" class="tag">language</a>
-              
-            </span>
-          
-        </div>
-        <div class="post-excerpt">
-          코틀린 진영에서의 자바 가상 스레드와 같은 경량 동시성 모델
 
-        </div>
-        <a href="/blog/language/kotlin-coroutines/" class="read-more">더 읽기</a>
-      </div>
     
-      <div class="post-card">
-        <h2 class="post-title">
-          <a href="/blog/programming/reactive-streams/">Reactive Streams</a>
-        </h2>
-        <div class="post-meta">
-          <time datetime="2024-05-27T00:00:00+09:00">2024년 05월 27일</time>
-          
-            <span class="post-categories">
-              
-                <a href="/blog/category/programming/" class="tag">programming</a>
-              
-            </span>
-          
-        </div>
-        <div class="post-excerpt">
-          리액티브 프로그래밍을 표준화한 명세이다.
 
-        </div>
-        <a href="/blog/programming/reactive-streams/" class="read-more">더 읽기</a>
-      </div>
-    
-      <div class="post-card">
-        <h2 class="post-title">
-          <a href="/blog/programming/backpressure/">Backpressure</a>
-        </h2>
-        <div class="post-meta">
-          <time datetime="2024-05-27T00:00:00+09:00">2024년 05월 27일</time>
-          
-            <span class="post-categories">
-              
-                <a href="/blog/category/programming/" class="tag">programming</a>
-              
-            </span>
-          
-        </div>
-        <div class="post-excerpt">
-          데이터 공급자(퍼블리셔)와 구독자 사이의 데이터 흐름을 조절하는 메커니즘
+    <div class="calendar-header">
+      <div class="year-navigation">
+  <form action="." method="GET">
+    <select name="year" onchange="this.form.submit()">
+      
 
-        </div>
-        <a href="/blog/programming/backpressure/" class="read-more">더 읽기</a>
+    </select>
+  </form>
+  <h2>2025년 활동 기록</h2>
+</div>
+      
+      <div class="color-scale">
+        <span>Less</span>
+        
+        <span class="calendar-day level-0" title="1 - 1 posts"></span>
+        
+        <span class="calendar-day level-1" title="2 - 2 posts"></span>
+        
+        <span class="calendar-day level-2" title="3 - 3 posts"></span>
+        
+        <span class="calendar-day level-3" title="4 - 4 posts"></span>
+        
+        <span class="calendar-day level-4" title="5 - 5 posts"></span>
+        
+        <span>More</span>
       </div>
-    
-      <div class="post-card">
-        <h2 class="post-title">
-          <a href="/blog/language/scoped-values/">Scoped Values</a>
-        </h2>
-        <div class="post-meta">
-          <time datetime="2024-05-26T00:00:00+09:00">2024년 05월 26일</time>
-          
-            <span class="post-categories">
-              
-                <a href="/blog/category/language/" class="tag">language</a>
-              
-            </span>
-          
-        </div>
-        <div class="post-excerpt">
-          특정 스레드 또는 작업으로 제한되는 범위 값을 생성할 수 있는 기능이다.
+      
+    </div>
 
-        </div>
-        <a href="/blog/language/scoped-values/" class="read-more">더 읽기</a>
-      </div>
-    
-  </div>
-  
-  <div class="view-all">
-    <a href="/blog/archive/" class="view-all-link">모든 글 보기</a>
+    <div class="calendar-grid">
+      
+      
+
+      
+      
+
+      
+      
+      
+
+
+      
+      
+
+      
+        
+          
+          <div class="calendar-day empty-padding"></div>
+        
+      
+    </div>
   </div>
 </div>
 
+<style>
+/* GitHub 잔디 스타일 CSS (이전 답변의 CSS를 참고하거나 새로 작성) */
+.github-calendar {
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  padding: 15px;
+  max-width: max-content; /* 내용에 맞게 너비 조절 */
+  margin: 20px auto;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+.calendar-header {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+  padding: 0 5px;
+
+  .year-navigation {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    form {
+      select {
+        padding: 8px 16px;
+        border: 2px solid #d0d7de;
+        border-radius: 6px;
+        font-size: 15px;
+        background-color: #f6f8fa;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        outline: none;
+
+        &:hover {
+          background-color: #ffffff;
+          box-shadow: 0 2px 4px rgba(27,31,36,0.12);
+        }
+
+        &:focus {
+          border-color: #0969da;
+          box-shadow: 0 0 0 3px rgba(9,105,218,0.3);
+        }
+      }
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 18px;
+      color: #24292f;
+    }
+  } /* 좌우 약간의 패딩 */
+}
+.calendar-header h2 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.color-scale {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  color: #57606a;
+}
+.color-scale span:not(.calendar-day) {
+  margin: 0 3px;
+}
+.color-scale .calendar-day {
+  margin: 0 1px; /* 범례 사각형 간 간격 */
+}
+
+
+.calendar-grid {
+  display: grid;
+  /* 7일(열)을 기준으로 자동으로 행 채움. 각 셀의 크기는 CSS 변수로 정의 */
+  grid-template-columns: repeat(auto-fill, var(--gh-cal-cell-size, 12px)); /* 이 방식 대신 grid-auto-flow: column 과 고정된 행 사용 */
+  grid-auto-flow: column;
+  grid-template-rows: repeat(7, var(--gh-cal-cell-size, 12px)); /* 7개의 행 */
+  grid-template-columns: repeat(53, var(--gh-cal-cell-size, 12px)); /* 약 53주 */
+  gap: var(--gh-cal-cell-gap, 3px);
+  justify-content: start; /* 왼쪽 정렬 */
+}
+
+.calendar-day {
+  width: var(--gh-cal-cell-size, 12px);
+  height: var(--gh-cal-cell-size, 12px);
+  background-color: #ebedf0; /* 기본 (글 없음) */
+  border: 1px solid rgba(27, 31, 35, 0.06);
+  border-radius: 2px;
+  box-sizing: border-box;
+}
+
+.calendar-day.empty-padding,
+.calendar-day.out-of-year {
+  background-color: transparent;
+  border: none;
+}
+
+.calendar-day.level-0 { background-color: #ebedf0; } /* No posts (or explicit no-posts class) */
+.calendar-day.level-1 { background-color: #9be9a8; }
+.calendar-day.level-2 { background-color: #40c463; }
+.calendar-day.level-3 { background-color: #30a14e; }
+.calendar-day.level-4 { background-color: #216e39; }
+
+/* Tooltip 기본 스타일은 브라우저에 따름 */
+.calendar-day[title]:hover {
+  outline: 1px solid #0969da; /* 호버 시 테두리 (선택 사항) */
+  position: relative; /* 고급 툴팁을 위한 준비 (현재는 사용 안함) */
+}
+</style>
       </main>
     </div>
     
