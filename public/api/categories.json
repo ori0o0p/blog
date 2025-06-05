@@ -1,0 +1,93 @@
+[
+  {
+    "name": "programming",
+    "title": "Programming",
+    "description": "프로그래밍 관련 글",
+    "subcategories": [
+      {
+        "name": "reactive",
+        "title": "Reactive",
+        "description": "리액티브 프로그래밍 관련 글",
+        "posts": [
+          {
+            "id": "reactive-streams",
+            "title": "Reactive Streams",
+            "slug": "reactive-streams",
+            "date": "2024-05-27T00:00:00+09:00",
+            "excerpt": "리액티브 프로그래밍을 표준화한 명세이다."
+          },
+          {
+            "id": "backpressure",
+            "title": "Backpressure",
+            "slug": "backpressure",
+            "date": "2024-05-27T00:00:00+09:00",
+            "excerpt": "데이터 공급자(퍼블리셔)와 구독자 사이의 데이터 흐름을 조절하는 메커니즘"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "language",
+    "title": "Language",
+    "description": "개발 언어 관련 글",
+    "subcategories": [
+      {
+        "name": "java",
+        "title": "Java",
+        "description": "Java 관련 글",
+        "posts": [
+          {
+            "id": "pecs",
+            "title": "PECS",
+            "slug": "pecs",
+            "date": "2024-07-28T00:00:00+09:00",
+            "excerpt": "Producer Extends Consumer Super"
+          },
+          {
+            "id": "java-throwing-exception",
+            "title": "Throwing Exception",
+            "slug": "java-throwing-exception",
+            "date": "2024-06-17T00:00:00+09:00",
+            "excerpt": "자바를 넘어서 모든 SW의 예외 처리는 매우 중요하다."
+          },
+          {
+            "id": "scoped-values",
+            "title": "Scoped Values",
+            "slug": "scoped-values",
+            "date": "2024-05-26T00:00:00+09:00",
+            "excerpt": "특정 스레드 또는 작업으로 제한되는 범위 값을 생성할 수 있는 기능이다."
+          },
+          {
+            "id": "reference-type",
+            "title": "Reference Type",
+            "slug": "reference-type",
+            "date": "2024-05-17T00:00:00+09:00",
+            "excerpt": "프로그램이 객체 생명 주기를 효과적으로 관리할 수 있는 객체 참조 유형 4가지를 정리합니다"
+          },
+          {
+            "id": "forkjoinpool",
+            "title": "ForkJoinPool",
+            "slug": "forkjoinpool",
+            "date": "2024-04-30T00:00:00+09:00",
+            "excerpt": "Fork/Join 프레임워크 기반으로 작업을 병렬로 실행하고 작업을 더 작은 하위 작업으로 나누고, 최종 결과로 결합하는 ForkJoinTask를 위한 스레드 풀이다."
+          }
+        ]
+      },
+      {
+        "name": "kotlin",
+        "title": "Kotlin",
+        "description": "Kotlin 관련 글",
+        "posts": [
+          {
+            "id": "kotlin-coroutines",
+            "title": "Coroutines",
+            "slug": "kotlin-coroutines",
+            "date": "2024-05-31T00:00:00+09:00",
+            "excerpt": "코틀린 진영에서의 자바 가상 스레드와 같은 경량 동시성 모델"
+          }
+        ]
+      }
+    ]
+  }
+]

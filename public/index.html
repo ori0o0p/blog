@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ori0o0p | 개발 블로그</title>
+  <meta name="description" content="개발 블로그">
+  <link rel="canonical" href="https://ori0o0p.github.io/blog/">
+  
+  <script>
+    (function() {
+      try {
+        var preferredTheme = localStorage.getItem('theme');
+        var systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var applyDarkThemeStyle = false;
+
+        if (preferredTheme === 'dark') {
+          applyDarkThemeStyle = true;
+        } else if (preferredTheme === 'light') {
+          applyDarkThemeStyle = false;
+        } else if (systemPrefersDark) {
+          applyDarkThemeStyle = true;
+        }
+
+        if (applyDarkThemeStyle) {
+          document.documentElement.classList.add('dark-theme');
+        } else {
+          document.documentElement.classList.remove('dark-theme');
+        }
+      } catch (e) {
+        console.warn("초기 테마 설정 중 오류 발생:", e);
+      }
+    })();
+  </script>
+  
+  <style>
+    /* Initial loading styles */
+    .initial-loading {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      width: 100%;
+      background-color: var(--bg-color, #ffffff);
+      color: var(--text-color, #212121);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid rgba(0, 0, 0, 0.1);
+      border-radius: 50%;
+      border-top-color: var(--link-color, #333333);
+      animation: spin 1s ease-in-out infinite;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    .dark-theme .spinner {
+      border: 3px solid rgba(255, 255, 255, 0.1);
+      border-top-color: var(--link-color, #cccccc);
+    }
+  </style>
+</head>
+<body>
+  <div id="root">
+    <div class="initial-loading">
+      <div class="spinner"></div>
+    </div>
+  </div>
+</body>
+</html>

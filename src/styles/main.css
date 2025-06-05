@@ -1,0 +1,63 @@
+/* Import the existing CSS */
+@import url('/blog/assets/css/main.css');
+@import url('/blog/assets/css/syntax.css');
+
+/* Additional SPA-specific styles */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  font-size: 1.2rem;
+  color: var(--blockquote-color);
+}
+
+.error {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  color: var(--destructive);
+}
+
+/* Page transition animations */
+.page-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.page-exit {
+  opacity: 1;
+}
+
+.page-exit-active {
+  opacity: 0;
+  transition: opacity 300ms;
+}
+
+/* Mobile menu visibility */
+.sidebar.mobile-visible {
+  display: block;
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 60px);
+  z-index: 90;
+  overflow-y: auto;
+}
+
+@media (min-width: 769px) {
+  .sidebar.mobile-visible {
+    position: sticky;
+    width: 280px;
+    height: auto;
+  }
+}
